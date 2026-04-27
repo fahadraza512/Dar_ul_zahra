@@ -42,15 +42,15 @@ export default function WhyUsSection() {
                   transition={{ delay: i * 0.15 }}
                 >
                   <motion.div
-                    className="flex-shrink-0 w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center"
+                    className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl flex items-center justify-center"
                     whileHover={{ backgroundColor: "rgba(241,90,36,0.2)", scale: 1.08 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     {f.icon}
                   </motion.div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">{f.title}</h4>
-                    <p className="text-white/60 leading-relaxed">{f.desc}</p>
+                    <h4 className="text-base md:text-lg lg:text-xl font-bold mb-1 md:mb-2">{f.title}</h4>
+                    <p className="text-white/60 text-sm md:text-base leading-relaxed">{f.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -73,15 +73,15 @@ export default function WhyUsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c1525]/80 to-transparent" />
               </motion.div>
               <motion.div
-                className="absolute -bottom-6 left-4 bg-white p-5 md:p-8 rounded-2xl shadow-2xl"
+                className="absolute bottom-4 left-4 bg-white p-3 md:p-5 rounded-xl md:rounded-2xl shadow-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, type: "spring", stiffness: 180 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-4xl md:text-5xl font-black text-primary mb-1">98%</div>
-                <div className="text-[#0c1525] font-bold text-sm uppercase tracking-wider">Graduation Rate</div>
+                <div className="text-2xl md:text-4xl font-black text-primary mb-0.5 md:mb-1">98%</div>
+                <div className="text-[#0c1525] font-bold text-xs md:text-sm uppercase tracking-wider">Graduation Rate</div>
               </motion.div>
             </div>
           </AnimateIn>
