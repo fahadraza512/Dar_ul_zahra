@@ -75,8 +75,29 @@ export default function RootLayout({
     <html lang="en" style={{ overflowX: "hidden" }}>
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        {/* Inline splash blocker — runs before any JS, covers content immediately */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          #__splash_blocker {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background-color: #f15a24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          #__splash_blocker img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+          }
+        `}} />
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
+        {/* Pure HTML splash blocker — visible before JS loads, removed by SplashScreen on mount */}
+        <div id="__splash_blocker" aria-hidden="true">
+          <img src="/logo.png" alt="" />
+        </div>
         <SplashScreen />
         <CustomCursor />
         {children}

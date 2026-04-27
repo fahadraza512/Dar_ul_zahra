@@ -6,6 +6,10 @@ export default function SplashScreen() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    // Remove the static HTML blocker — React splash takes over from here
+    const blocker = document.getElementById("__splash_blocker");
+    if (blocker) blocker.remove();
+
     const timer = setTimeout(() => setVisible(false), 3000);
     return () => clearTimeout(timer);
   }, []);
@@ -68,7 +72,7 @@ export default function SplashScreen() {
               }}
             />
 
-            {/* Logo — dead center using flex on the whole 200x200 box */}
+            {/* Logo */}
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -81,7 +85,6 @@ export default function SplashScreen() {
                 justifyContent: "center",
               }}
             >
-              {/* Pulsing logo */}
               <motion.img
                 src="/logo.png"
                 alt="Dar ul Zahra"
