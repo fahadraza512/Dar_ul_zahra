@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Pages that start with a dark hero — navbar starts transparent with white text
 const darkHeroPages = ["/"];
 
 const navLinks = [
@@ -16,7 +15,6 @@ const navLinks = [
   { label: "Contact",    href: "/contact" },
 ];
 
-// Items already in nav are skipped
 const moreLinks = [
   { label: "Profile",              href: "/profile",          icon: "👤", category: "About" },
   { label: "Special Guests",       href: "/special-guests",   icon: "⭐", category: "About" },
@@ -38,9 +36,16 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
   const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(forceScrolled);
   const moreRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   const pathname = usePathname();
   const hasDarkHero = darkHeroPages.includes(pathname);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+    setMoreOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (forceScrolled) return;
@@ -50,10 +55,9 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
     return () => window.removeEventListener("scroll", check);
   }, [forceScrolled, pathname]);
 
-  // On white-bg pages, always act as scrolled (dark text)
   const isScrolled = forceScrolled || !hasDarkHero || scrolled;
 
-  // Close more menu on outside click
+  // Close more menu on outside click (desktop)
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
@@ -64,8 +68,27 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // Close mobile menu on outside click
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [open]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <motion.header
+      ref={navRef}
       className="fixed top-0 w-full z-50"
       animate={{
         backgroundColor: isScrolled ? "rgba(255,255,255,0.98)" : "rgba(0,0,0,0)",
@@ -74,18 +97,18 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
       transition={{ duration: 0.3 }}
       style={{ backdropFilter: isScrolled ? "blur(12px)" : "none" }}
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20 py-3 flex justify-between items-center">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
-            <Image src="/logo.png" alt="Dar ul Zahra" width={80} height={80} className="object-contain" priority />
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group min-w-0">
+          <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }} className="shrink-0">
+            <Image src="/logo.png" alt="Dar ul Zahra" width={56} height={56} className="object-contain md:w-16 md:h-16 lg:w-20 lg:h-20" priority />
           </motion.div>
           <motion.span
-            className="text-2xl tracking-widest uppercase font-nexa transition-colors duration-300"
+            className="text-base md:text-lg lg:text-2xl tracking-widest uppercase font-nexa transition-colors duration-300 truncate"
             style={{ color: isScrolled ? "#2d5a1b" : "#ffffff" }}
             whileHover={{ color: "#f15a24" }}
           >
-            DAR-AL-ZAHRA
+            DAR-UL-ZAHRA
           </motion.span>
         </Link>
 
@@ -110,7 +133,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
             </Link>
           ))}
 
-          {/* More — full-width mega menu */}
+          {/* More — mega menu */}
           <div ref={moreRef} className="relative">
             <button
               onClick={() => setMoreOpen(o => !o)}
@@ -140,7 +163,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
         </nav>
 
         <motion.button
-          className="hidden lg:block bg-primary text-white px-8 py-3 rounded-md font-bold text-base shadow-lg shadow-primary/20"
+          className="hidden lg:block bg-primary text-white px-8 py-3 rounded-md font-bold text-base shadow-lg shadow-primary/20 shrink-0"
           whileHover={{ scale: 1.04, backgroundColor: "#d44a1a" }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 300 }}
@@ -148,15 +171,31 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
           Donate Now
         </motion.button>
 
-        {/* Mobile toggle */}
-        <button className="lg:hidden p-2" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          <motion.div animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} className={`w-6 h-0.5 mb-1.5 origin-center ${isScrolled ? "bg-[#0c1525]" : "bg-white"}`} />
-          <motion.div animate={open ? { opacity: 0 } : { opacity: 1 }} className={`w-6 h-0.5 mb-1.5 ${isScrolled ? "bg-[#0c1525]" : "bg-white"}`} />
-          <motion.div animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} className={`w-6 h-0.5 origin-center ${isScrolled ? "bg-[#0c1525]" : "bg-white"}`} />
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden p-2 shrink-0"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          <div className="w-6 flex flex-col gap-1.5">
+            <motion.span
+              className={`block h-0.5 rounded-full origin-center ${isScrolled ? "bg-[#0c1525]" : "bg-white"}`}
+              animate={open ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+            />
+            <motion.span
+              className={`block h-0.5 rounded-full ${isScrolled ? "bg-[#0c1525]" : "bg-white"}`}
+              animate={open ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+            />
+            <motion.span
+              className={`block h-0.5 rounded-full origin-center ${isScrolled ? "bg-[#0c1525]" : "bg-white"}`}
+              animate={open ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+            />
+          </div>
         </button>
       </div>
 
-      {/* Full-width mega menu */}
+      {/* Desktop mega menu */}
       <AnimatePresence>
         {moreOpen && (
           <motion.div
@@ -168,10 +207,8 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
             onMouseEnter={() => setMoreOpen(true)}
             onMouseLeave={() => setMoreOpen(false)}
           >
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-20 py-8">
+            <div className="max-w-screen-xl mx-auto px-6 lg:px-20 py-8">
               <div className="flex gap-12">
-
-                {/* Categorised links */}
                 <div className="flex-1 grid grid-cols-5 gap-8">
                   {moreCategories.map(cat => (
                     <div key={cat}>
@@ -194,11 +231,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
                     </div>
                   ))}
                 </div>
-
-                {/* Divider */}
                 <div className="w-px bg-gray-100 self-stretch" />
-
-                {/* CTA card */}
                 <div className="shrink-0 w-52 flex flex-col justify-between">
                   <div className="bg-[#0c1525] rounded-2xl p-5 flex-1 flex flex-col justify-between">
                     <div>
@@ -221,8 +254,6 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
                       </svg>
                     </Link>
                   </div>
-
-                  {/* Quick stats */}
                   <div className="mt-3 grid grid-cols-2 gap-2">
                     {[{ n: "37+", l: "Students" }, { n: "2019", l: "Est." }].map((s, i) => (
                       <div key={i} className="bg-gray-50 rounded-xl px-3 py-2 text-center border border-gray-100">
@@ -232,7 +263,6 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
                     ))}
                   </div>
                 </div>
-
               </div>
             </div>
           </motion.div>
@@ -243,27 +273,57 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
       <AnimatePresence>
         {open && (
           <motion.div
-            className="lg:hidden bg-white border-t px-6 py-4 flex flex-col gap-4 shadow-lg"
+            className="lg:hidden bg-white border-t border-gray-100 shadow-lg overflow-y-auto"
+            style={{ maxHeight: "calc(100vh - 72px)" }}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
           >
-            {[...navLinks, ...moreLinks].map((l, i) => (
-              <motion.div key={l.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.04 }}>
-                <Link href={l.href} className="text-sm font-bold text-[#5e6d82] hover:text-primary transition-colors" onClick={() => setOpen(false)}>
-                  {l.label}
-                </Link>
-              </motion.div>
-            ))}
-            <motion.button
-              className="bg-primary text-white px-6 py-2.5 rounded-md font-bold text-sm text-left"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: (navLinks.length + moreLinks.length) * 0.04 }}
-            >
-              Donate Now
-            </motion.button>
+            <div className="px-4 py-4 flex flex-col gap-1">
+              {/* Main nav links */}
+              <p className="text-[10px] font-black text-primary uppercase tracking-widest px-3 pt-2 pb-1">Navigation</p>
+              {navLinks.map((l, i) => (
+                <motion.div key={l.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.04 }}>
+                  <Link
+                    href={l.href}
+                    className="flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold text-[#0c1525] hover:text-primary hover:bg-primary/5 transition-all"
+                    onClick={() => setOpen(false)}
+                  >
+                    {l.label}
+                  </Link>
+                </motion.div>
+              ))}
+
+              {/* More links grouped */}
+              {moreCategories.map((cat, ci) => (
+                <div key={cat} className="mt-3">
+                  <p className="text-[10px] font-black text-primary uppercase tracking-widest px-3 pb-1">{cat}</p>
+                  {moreLinks.filter(l => l.category === cat).map((l, i) => (
+                    <motion.div key={l.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: (ci * 3 + i) * 0.03 }}>
+                      <Link
+                        href={l.href}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#5e6d82] hover:text-primary hover:bg-primary/5 transition-all"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span>{l.icon}</span>
+                        {l.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              ))}
+
+              <div className="pt-4 pb-2 px-1">
+                <motion.button
+                  className="w-full bg-primary text-white px-6 py-3 rounded-xl font-bold text-sm"
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => setOpen(false)}
+                >
+                  Donate Now
+                </motion.button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

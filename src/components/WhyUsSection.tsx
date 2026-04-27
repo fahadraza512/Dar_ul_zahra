@@ -22,20 +22,20 @@ const features = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-24 bg-[#0c1525] text-white overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+    <section className="py-16 md:py-24 bg-[#0c1525] text-white overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-center">
           {/* Left */}
           <AnimateIn direction="left" className="lg:col-span-7">
             <p className="text-primary font-bold text-sm tracking-widest uppercase mb-4">Why Choose Us</p>
-            <h2 className="text-4xl lg:text-5xl font-black mb-16 font-manrope">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-10 md:mb-16 font-manrope">
               What Makes <span className="text-primary">Us</span> Unique?
             </h2>
-            <div className="space-y-10">
+            <div className="space-y-8 md:space-y-10">
               {features.map((f, i) => (
                 <motion.div
                   key={i}
-                  className="flex gap-8 group"
+                  className="flex gap-5 md:gap-8 group"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -61,14 +61,14 @@ export default function WhyUsSection() {
           <AnimateIn direction="right" delay={0.2} className="lg:col-span-5">
             <div className="relative">
               <motion.div
-                className="relative rounded-[2rem] overflow-hidden group"
+                className="relative rounded-3xl overflow-hidden group"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 <img
                   src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80"
                   alt="University"
-                  className="w-full h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-72 md:h-96 lg:h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c1525]/80 to-transparent" />
               </motion.div>

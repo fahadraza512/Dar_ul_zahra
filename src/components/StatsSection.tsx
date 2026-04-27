@@ -64,16 +64,16 @@ function Counter({ value, suffix, prefix }: { value: number; suffix: string; pre
 
 export default function StatsSection() {
   return (
-    <section className="bg-primary py-14 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-white text-center">
+    <section className="bg-primary py-10 md:py-14 overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 md:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-white text-center">
           {stats.map((stat, i) => (
             <AnimateIn key={i} direction="up" delay={i * 0.12}>
               <motion.div
                 whileHover={{ scale: 1.06, y: -4 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-4xl md:text-5xl font-bold mb-2 tabular-nums">
+                <p className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 tabular-nums">
                   <Counter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                 </p>
                 <p className="text-white/80 text-sm font-medium uppercase tracking-wide">{stat.label}</p>

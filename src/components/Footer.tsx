@@ -43,21 +43,21 @@ export default function Footer() {
     <footer className="bg-[#0c1525] text-white">
       {/* Top wave */}
       <div className="w-full overflow-hidden leading-none">
-        <svg viewBox="0 0 1440 40" className="w-full h-10 fill-white">
+        <svg viewBox="0 0 1440 40" className="w-full h-10 fill-white" preserveAspectRatio="none">
           <path d="M0,40 C360,0 1080,0 1440,40 L1440,0 L0,0 Z" />
         </svg>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20 pt-12 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 pt-10 md:pt-12 pb-12 md:pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 md:gap-10 lg:gap-12">
 
-          {/* ── Brand ── */}
-          <div className="lg:col-span-1">
+          {/* Brand */}
+          <div className="md:col-span-2 lg:col-span-1">
             <div className="bg-white rounded-2xl p-4 inline-flex items-center justify-center shadow-lg shadow-black/20 mb-4">
-              <Image src="/logo.png" alt="Dar ul Zahra" width={120} height={120} className="object-contain" />
+              <Image src="/logo.png" alt="Dar ul Zahra" width={100} height={100} className="object-contain w-20 h-20 md:w-24 md:h-24" />
             </div>
-            <h3 className="text-xl tracking-widest uppercase font-nexa text-[#6abf3a] mb-3">
-              DAR-AL-ZAHRA
+            <h3 className="text-lg md:text-xl tracking-widest uppercase font-nexa text-[#6abf3a] mb-3">
+              DAR-UL-ZAHRA
             </h3>
             <p className="text-white/50 text-sm leading-relaxed mb-2">
               Non-profit educational charity dedicated to the future of orphans and needy children in Pakistan.
@@ -65,8 +65,6 @@ export default function Footer() {
             <p className="text-primary text-xs font-semibold mb-6">
               Federally Registered # 517/20
             </p>
-
-            {/* Socials */}
             <div className="flex gap-3">
               {socials.map((s) => (
                 <motion.a
@@ -83,7 +81,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Pages ── */}
+          {/* Pages */}
           <div>
             <h4 className="text-base font-bold mb-6 relative inline-block">
               Pages
@@ -93,7 +91,7 @@ export default function Footer() {
               {pages.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="text-white/50 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors shrink-0" />
                     {l.label}
                   </Link>
                 </li>
@@ -106,7 +104,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Scholarships ── */}
+          {/* Scholarships */}
           <div>
             <h4 className="text-base font-bold mb-6 relative inline-block">
               Scholarships
@@ -116,7 +114,7 @@ export default function Footer() {
               {scholarshipLinks.map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="text-white/50 hover:text-primary transition-colors text-sm flex items-center gap-2 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors shrink-0" />
                     {l.label}
                   </Link>
                 </li>
@@ -124,20 +122,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Donate ── */}
+          {/* Donate */}
           <div>
             <h4 className="text-base font-bold mb-6 relative inline-block">
               Donate
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-primary rounded-full" />
             </h4>
-            <div className="mt-4 space-y-5">
-              {/* Bank */}
+            <div className="mt-4 space-y-4">
               <div className="bg-white/5 border border-white/8 rounded-xl p-4">
                 <p className="text-white/40 text-[10px] uppercase tracking-widest mb-1">Bank Al-Habib — IBAN</p>
                 <p className="text-white font-mono text-xs font-semibold break-all">PK47-BAHL-0209-0981-0001-3801</p>
                 <p className="text-white/50 text-xs mt-1">Syed Sajjad Hussain Kazmi</p>
               </div>
-              {/* JazzCash */}
               <div className="bg-white/5 border border-white/8 rounded-xl p-4">
                 <p className="text-white/40 text-[10px] uppercase tracking-widest mb-1">JazzCash</p>
                 <p className="text-white font-semibold text-sm">+92 333 6006 512</p>
@@ -145,14 +141,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Contact ── */}
+          {/* Contact */}
           <div>
             <h4 className="text-base font-bold mb-6 relative inline-block">
               Contact
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-primary rounded-full" />
             </h4>
             <ul className="mt-4 space-y-4">
-              {/* Phone */}
               <li className="flex items-start gap-3">
                 <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -162,7 +157,6 @@ export default function Footer() {
                   <p>+92 333 6006512</p>
                 </div>
               </li>
-              {/* Email */}
               <li className="flex items-start gap-3">
                 <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -171,7 +165,6 @@ export default function Footer() {
                   Darulzahra72@gmail.com
                 </a>
               </li>
-              {/* Address */}
               <li className="flex items-start gap-3">
                 <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -184,40 +177,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ── Newsletter ── */}
-          <div>
-            <h4 className="text-base font-bold mb-6 relative inline-block">
-              Newsletter
-              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-primary rounded-full" />
-            </h4>
-            <p className="text-white/50 text-sm leading-relaxed mb-5 mt-4">
-              Get the latest updates and impact reports delivered to your inbox.
-            </p>
-            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-full text-white placeholder-white/30 transition-colors"
-              />
-              <motion.button
-                type="submit"
-                className="bg-primary hover:bg-primary-dark text-white font-bold text-sm py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-              >
-                Subscribe
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </motion.button>
-            </form>
-          </div>
-
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-white/8">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-20 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 py-5 md:py-6 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 text-center md:text-left">
           <p className="text-white/30 text-xs">
             © {new Date().getFullYear()} Dar ul Zahra Educational Center. All Rights Reserved.
           </p>

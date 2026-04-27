@@ -23,11 +23,11 @@ const impactItems = [
 
 export default function ImpactSection() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-14 items-center">
+    <section className="py-14 md:py-20 bg-white overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
         <AnimateIn direction="left">
           <span className="text-primary font-semibold text-sm uppercase tracking-widest">Our Impact</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0c1525] mt-2 mb-6 leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0c1525] mt-2 mb-6 leading-tight">
             What We Have Achieved Through Education
           </h2>
           <div className="space-y-4">

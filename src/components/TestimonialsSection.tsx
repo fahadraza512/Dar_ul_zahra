@@ -15,8 +15,8 @@ export default function TestimonialsSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-20 bg-[#f8fafc] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-14 items-center">
+    <section className="py-14 md:py-20 bg-[#f8fafc] overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
         {/* Left image */}
         <AnimateIn direction="left" className="hidden md:block">
           <div className="relative">
@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
         {/* Right content */}
         <AnimateIn direction="right" delay={0.15}>
           <span className="text-primary font-semibold text-sm uppercase tracking-widest">Testimonials</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0c1525] mt-2 mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0c1525] mt-2 mb-8">
             What People Say About Us
           </h2>
 

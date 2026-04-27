@@ -25,12 +25,12 @@ const programs = [
 
 export default function ScholarshipPrograms() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
-        <AnimateIn direction="up" className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
+        <AnimateIn direction="up" className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-4 md:gap-6">
           <div>
-            <h2 className="text-3xl font-black text-[#0c1525] mb-4 font-manrope">Our Scholarship Programs</h2>
-            <p className="text-[#5e6d82] text-lg">Discover the right opportunity for your academic journey.</p>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0c1525] mb-3 md:mb-4 font-manrope">Our Scholarship Programs</h2>
+            <p className="text-[#5e6d82] text-base md:text-lg">Discover the right opportunity for your academic journey.</p>
           </div>
           <motion.a
             href="#"
@@ -45,11 +45,11 @@ export default function ScholarshipPrograms() {
           </motion.a>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {programs.map((p, i) => (
             <AnimateIn key={i} direction="up" delay={i * 0.12}>
               <motion.div
-                className="bg-[#fcfdfe] p-10 rounded-2xl border border-gray-100 shadow-sm h-full flex flex-col"
+                className="bg-[#fcfdfe] p-6 md:p-10 rounded-2xl border border-gray-100 shadow-sm h-full flex flex-col"
                 whileHover={{ y: -10, boxShadow: "0 24px 48px rgba(0,0,0,0.10)" }}
                 transition={{ type: "spring", stiffness: 220 }}
               >

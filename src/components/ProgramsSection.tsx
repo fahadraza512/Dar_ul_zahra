@@ -44,11 +44,11 @@ const programs = [
 
 export default function ProgramsSection() {
   return (
-    <section className="py-20 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <AnimateIn direction="up" className="mb-14">
+    <section className="py-14 md:py-20 bg-gray-50 overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8">
+        <AnimateIn direction="up" className="mb-10 md:mb-14 text-center">
           <span className="text-primary font-semibold text-sm uppercase tracking-widest">What We Offer</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0c1525] mt-2 mb-4">Our Major Support Initiatives</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0c1525] mt-2 mb-4">Our Major Support Initiatives</h2>
           <p className="text-[#5e6d82] max-w-2xl mx-auto">
             We offer a range of scholarship and financial assistance programs designed to remove barriers and open doors for deserving students.
           </p>

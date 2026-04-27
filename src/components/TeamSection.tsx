@@ -11,21 +11,21 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
-        <AnimateIn direction="up" className="mb-20">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
+        <AnimateIn direction="up" className="mb-12 md:mb-20 text-center">
           <span className="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">Our Leadership</span>
-          <h2 className="text-4xl font-black text-[#0c1525] mb-4 font-manrope">Led by Visionaries</h2>
-          <p className="text-[#5e6d82] max-w-2xl mx-auto text-lg">
+          <h2 className="text-3xl md:text-4xl font-black text-[#0c1525] mb-4 font-manrope">Led by Visionaries</h2>
+          <p className="text-[#5e6d82] max-w-2xl mx-auto text-base md:text-lg">
             Seasoned academics, financial experts, and philanthropists dedicated to educational reform.
           </p>
         </AnimateIn>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
           {team.map((member, i) => (
             <AnimateIn key={i} direction="up" delay={i * 0.1}>
               <motion.div className="group text-center" whileHover={{ y: -6 }} transition={{ type: "spring", stiffness: 250 }}>
-                <div className="relative w-44 h-44 mx-auto mb-6">
+                <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 mx-auto mb-4 md:mb-6">
                   <motion.div
                     className="absolute inset-0 bg-primary/10 rounded-full"
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -40,8 +40,8 @@ export default function TeamSection() {
                     transition={{ type: "spring", stiffness: 200 }}
                   />
                 </div>
-                <h4 className="text-lg font-bold text-[#0c1525] mb-1 font-manrope">{member.name}</h4>
-                <p className="text-[#5e6d82] text-sm mb-4">{member.role}</p>
+                <h4 className="text-sm md:text-base lg:text-lg font-bold text-[#0c1525] mb-1 font-manrope">{member.name}</h4>
+                <p className="text-[#5e6d82] text-xs md:text-sm mb-3 md:mb-4">{member.role}</p>
                 <div className="flex justify-center gap-3">
                   {["share", "email"].map((type) => (
                     <motion.button

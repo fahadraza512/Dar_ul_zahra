@@ -11,8 +11,8 @@ const highlights = [
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-14 items-center">
+    <section className="py-14 md:py-20 bg-white overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
         {/* Image side */}
         <AnimateIn direction="left">
           <div className="relative">
@@ -40,7 +40,7 @@ export default function AboutSection() {
         {/* Content side */}
         <AnimateIn direction="right" delay={0.15}>
           <span className="text-primary font-semibold text-sm uppercase tracking-widest">About Us</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0c1525] mt-2 mb-5 leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0c1525] mt-2 mb-5 leading-tight">
             Shaping Education Through Generosity
           </h2>
           <p className="text-[#5e6d82] leading-relaxed mb-4">
@@ -50,7 +50,7 @@ export default function AboutSection() {
             Through a range of scholarship programs, interest-free loans, and partnerships with leading institutions, we have supported thousands of students in achieving their academic and professional goals.
           </p>
 
-          <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8">
             {highlights.map((h, i) => (
               <motion.div
                 key={i}

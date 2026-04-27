@@ -17,12 +17,12 @@ const images = [
 
 export default function LegacySection() {
   return (
-    <section className="py-24 bg-[#f8fafc] overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="py-16 md:py-24 bg-[#f8fafc] overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Circular montage */}
           <AnimateIn direction="left">
-            <div className="relative w-full aspect-square max-w-[520px] mx-auto flex items-center justify-center">
+            <div className="relative w-full aspect-square max-w-xs md:max-w-sm lg:max-w-lg mx-auto flex items-center justify-center">
               <motion.div
                 className="absolute inset-0 border-2 border-dashed border-primary/20 rounded-full"
                 animate={{ rotate: 360 }}
@@ -60,14 +60,13 @@ export default function LegacySection() {
           {/* Content */}
           <AnimateIn direction="right" delay={0.2}>
             <span className="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">Our Legacy</span>
-            <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight font-manrope text-[#0c1525]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 leading-tight font-manrope text-[#0c1525]">
               A Journey of <span className="text-primary">3 Decades</span> of Impact
             </h2>
-            <p className="text-lg text-[#5e6d82] mb-12 leading-relaxed">
+            <p className="text-base md:text-lg text-[#5e6d82] mb-8 md:mb-12 leading-relaxed">
               Since our inception, we have been committed to the dream of an educated nation. Our footprint spans across every corner of the country, reaching the most marginalized communities.
             </p>
-
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-2 gap-6 md:gap-10">
               {stats.map((s, i) => (
                 <motion.div
                   key={i}

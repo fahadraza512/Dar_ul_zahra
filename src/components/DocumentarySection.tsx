@@ -8,7 +8,7 @@ export default function DocumentarySection() {
   return (
     <section className="relative w-full">
       {/* Main image with overlay */}
-      <div className="relative w-full h-[480px] overflow-hidden">
+      <div className="relative w-full h-64 md:h-96 lg:h-[480px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1627556704302-624286467c65?w=1600&q=80"
           alt="Documentary"
@@ -21,7 +21,7 @@ export default function DocumentarySection() {
         {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 px-6 text-center">
           <motion.h2
-            className="text-white text-2xl md:text-4xl font-bold max-w-2xl leading-snug"
+            className="text-white text-xl md:text-2xl lg:text-4xl font-bold max-w-2xl leading-snug"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
