@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
 import AnimateIn from "./ui/AnimateIn";
 
 const stats = [
@@ -18,132 +17,86 @@ const orbitImages = [
   { src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=80", alt: "Impact 5" },
 ];
 
-/**
- * Each circle is placed at the container center (50%, 50%).
- * Its transform-origin is also the container center.
- * We use translateX(radius) to push it to the ring, then rotate the whole thing.
- * This guarantees the circle CENTER is exactly on the ring at all times.
- */
-function OrbitCircle({ index, total, size }: { index: number; total: number; size: number }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [radius, setRadius] = useState(0);
-
-  useEffect(() => {
-    const update = () => {
-      if (containerRef.current) {
-        const r = containerRef.current.offsetWidth / 2;
-        setRadius(r);
-      }
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  const startAngle = (index / total) * 360;
-  const img = orbitImages[index];
-
-  return (
-    <div ref={containerRef} className="absolute inset-0">
-      {radius > 0 && (
-        <motion.div
-          style={{
-            position: "absolute",
-            // Place at exact center of container
-            left: "50%",
-            top: "50%",
-            // translateX pushes the circle center to the ring
-            // translateY centers it vertically on the ring
-            x: -size / 2,
-            y: -size / 2,
-            width: size,
-            height: size,
-            // transform-origin at the circle center, offset back to container center
-            originX: size / 2,
-            originY: radius + size / 2,
-          }}
-          animate={{ rotate: [startAngle, startAngle + 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        >
-          {/* Counter-rotate so image stays upright */}
-          <motion.div
-            style={{ width: "100%", height: "100%", borderRadius: "50%", overflow: "hidden", border: "2px solid white", boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
-            animate={{ rotate: [-startAngle, -(startAngle + 360)] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          >
-            <img src={img.src} alt={img.alt} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-          </motion.div>
-        </motion.div>
-      )}
-    </div>
-  );
-}
-
 export default function LegacySection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [containerSize, setContainerSize] = useState(0);
-
-  useEffect(() => {
-    const update = () => {
-      if (containerRef.current) setContainerSize(containerRef.current.offsetWidth);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  const radius = containerSize / 2;
-  // Circle diameter = 22% of container
-  const circleSize = containerSize * 0.22;
-
   return (
     <section className="py-10 md:py-16 lg:py-20 bg-[#f8fafc] overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
 
           <AnimateIn direction="up">
-            <div
-              ref={containerRef}
-              className="relative w-full aspect-square max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] mx-auto"
-            >
+            {/*
+              ORBIT MATH (pure CSS, no JS):
+              ─────────────────────────────
+              Container = square, side S. Ring radius R = S/2.
+              Circle diameter D = 0.2S  →  radius d = 0.1S
+
+              Each circle wrapper sits at the container CENTER (left:50%, top:50%).
+              The wrapper rotates around that center (transform-origin: 0 0 after offset).
+
+              Inside the wrapper, the circle is translated by R along the X axis.
+              Since the wrapper origin is the container center, translateX(R) puts the
+              circle's LEFT EDGE at the ring. We then pull back by d (half circle width)
+              so the circle CENTER lands exactly on the ring.
+
+              R = 50% of container. D = 20% of container. d = 10% of container.
+              translateX(R - d) = translateX(40%) of container.
+
+              But % in translate is relative to the ELEMENT itself, not the container.
+              So we use a zero-size wrapper at the center and translate in px via a
+              CSS variable trick — OR we use a known ratio.
+
+              Simplest reliable way: use a wrapper that is the full container size,
+              positioned at inset:0. Rotate it. Inside, place the circle at
+              top: calc(50% - D/2) = 40% from top (since D=20%, half=10%, 50%-10%=40%)
+              left: 0 (left edge of container = ring left = center - R).
+              But left:0 puts the circle LEFT EDGE at the container left, which is the ring.
+              Circle center would be at left: D/2 = 10% from container left.
+              Container center is at 50%. Ring is at 0% (left) and 100% (right).
+              Circle center at 10% ≠ ring (0%). Off by D/2.
+
+              CORRECT: left: -D/2 = -10% so circle center = 0% = ring left edge. ✓
+              top: 50% - D/2 = 40% so circle center = 50% = ring vertical center. ✓
+
+              Then rotating the full-size wrapper rotates the circle around the container center.
+            */}
+            <div className="relative w-full aspect-square max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] mx-auto">
+
               {/* Orbit ring */}
               <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30" />
 
-              {/* 5 circles — each center exactly on the ring */}
-              {containerSize > 0 && orbitImages.map((img, i) => {
-                const angleDeg = (i / orbitImages.length) * 360;
-                const angleRad = (angleDeg - 90) * (Math.PI / 180); // start from top
-                // Center of circle = point on ring
-                const cx = radius + radius * Math.cos(angleRad); // left position
-                const cy = radius + radius * Math.sin(angleRad); // top position
-
+              {orbitImages.map((img, i) => {
+                const startDeg = i * 72; // 360/5 = 72°
                 return (
+                  // Full-size wrapper rotates around container center
                   <motion.div
                     key={i}
-                    style={{
-                      position: "absolute",
-                      width: circleSize,
-                      height: circleSize,
-                      borderRadius: "50%",
-                      overflow: "hidden",
-                      border: "2px solid white",
-                      boxShadow: "0 4px 14px rgba(0,0,0,0.15)",
-                      // Place so center is at (cx, cy)
-                      left: cx - circleSize / 2,
-                      top: cy - circleSize / 2,
-                      // Rotate around the container center
-                      originX: radius - (cx - circleSize / 2),
-                      originY: radius - (cy - circleSize / 2),
-                    }}
-                    animate={{ rotate: [0, 360] }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                      delay: 0,
-                    }}
+                    className="absolute inset-0"
+                    style={{ rotate: startDeg }}
+                    animate={{ rotate: [startDeg, startDeg + 360] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
-                    <img src={img.src} alt={img.alt} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    {/*
+                      Circle positioned so its CENTER is on the ring:
+                      - Ring is the border of the container (inset-0)
+                      - We want center at top of ring: top=0, left=50%
+                      - left: calc(50% - 10%) = 40% (50% - half of 20%)
+                      - top: calc(0% - 10%) = -10% (ring top - half circle height)
+                      This puts the circle center exactly at (50%, 0%) of container = top of ring
+                    */}
+                    <motion.div
+                      className="absolute rounded-full overflow-hidden border-[2px] border-white shadow-md"
+                      style={{
+                        width: "20%",
+                        aspectRatio: "1/1",
+                        left: "40%",
+                        top: "-10%",
+                      }}
+                      // Counter-rotate to keep image upright
+                      animate={{ rotate: [-startDeg, -(startDeg + 360)] }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    >
+                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                    </motion.div>
                   </motion.div>
                 );
               })}
@@ -151,8 +104,7 @@ export default function LegacySection() {
               {/* Center badge */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  className="bg-white rounded-full shadow-xl flex flex-col items-center justify-center text-center z-10"
-                  style={{ width: containerSize * 0.42, height: containerSize * 0.42 }}
+                  className="w-[42%] aspect-square bg-white rounded-full shadow-xl flex flex-col items-center justify-center text-center z-10"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
