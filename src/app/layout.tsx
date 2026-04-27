@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import CustomCursor from '@/components/CustomCursor';
-import SplashScreen from '@/components/SplashScreen';
+import dynamic from 'next/dynamic';
+
+const CustomCursor = dynamic(() => import('@/components/CustomCursor'), { ssr: false });
+const SplashScreen = dynamic(() => import('@/components/SplashScreen'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'] });
 
