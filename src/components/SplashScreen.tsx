@@ -113,7 +113,7 @@ export default function SplashScreen() {
                 textAlign: "center",
               }}
             >
-              DAR-AL-ZAHRA
+              DAR-UL-ZAHRA
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 8 }}
