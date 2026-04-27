@@ -106,11 +106,12 @@ export default function SplashScreen() {
               transition={{ delay: 0.7, duration: 0.5 }}
               style={{
                 color: "#2d5a1b",
-                fontSize: 24,
-                letterSpacing: "0.22em",
+                fontSize: 22,
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 margin: 0,
                 textAlign: "center",
+                whiteSpace: "nowrap",
               }}
             >
               DAR-UL-ZAHRA

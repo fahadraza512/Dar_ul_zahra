@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="bg-white rounded-2xl p-4 inline-flex items-center justify-center shadow-lg shadow-black/20 mb-4">
               <Image src="/logo.png" alt="Dar ul Zahra" width={100} height={100} className="object-contain w-20 h-20 md:w-24 md:h-24" />
             </div>
-            <h3 className="text-lg md:text-xl tracking-widest uppercase font-nexa text-[#6abf3a] mb-3">
+            <h3 className="text-base tracking-widest uppercase font-nexa text-[#6abf3a] mb-3 whitespace-nowrap">
               DAR-UL-ZAHRA
             </h3>
             <p className="text-white/50 text-sm leading-relaxed mb-2">
