@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+
+# Sitemap (generated)
+public/sitemap.xml
+public/sitemap-0.xml
+public/robots.txt

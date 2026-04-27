@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'NexaRustSlab';
+  src: url('/fonts/NexaRustSlab-Black3.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,23 +15,66 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #f15a24;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Default: content always visible (no JS / SSR) */
+.animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stats-border {
+  border-left: 4px solid #f15a24;
+}
+
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(12,21,37,0.9) 0%, rgba(12,21,37,0.4) 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  min-height: 100%;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Custom orange scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #f15a24;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d44a1a;
+}
+
+.swiper-pagination-bullet {
+  background: #d1d5db !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #f15a24 !important;
 }

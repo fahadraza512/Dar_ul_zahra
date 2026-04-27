@@ -1,0 +1,69 @@
+"use client";
+import { motion } from "framer-motion";
+import AnimateIn from "./ui/AnimateIn";
+
+export default function DualActionCards() {
+  return (
+    <section className="py-24 bg-white z-20">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Card 1 */}
+          <AnimateIn direction="left" delay={0.1}>
+            <motion.div
+              className="bg-primary p-12 rounded-2xl text-white relative overflow-hidden h-full"
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-4 font-manrope">
+                  Shahbaz Sharif Merit Scholarship
+                </h3>
+                <p className="text-white/80 mb-10 text-lg leading-relaxed max-w-md">
+                  Transforming the academic landscape by providing international standard education to the brightest minds.
+                </p>
+                <motion.button
+                  className="bg-white text-primary px-8 py-3.5 rounded-md font-bold text-sm hover:bg-gray-100 transition-colors"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Apply Internationally
+                </motion.button>
+              </div>
+              <svg className="absolute -bottom-10 -right-10 w-48 h-48 opacity-10" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 11-6-11-6z" />
+              </svg>
+            </motion.div>
+          </AnimateIn>
+
+          {/* Card 2 */}
+          <AnimateIn direction="right" delay={0.2}>
+            <motion.div
+              className="bg-[#0c1525] p-12 rounded-2xl text-white relative overflow-hidden h-full"
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-4 font-manrope">
+                  9 Billion Merit Scholarship
+                </h3>
+                <p className="text-white/80 mb-10 text-lg leading-relaxed max-w-md">
+                  Local scholarships designed to bridge the gap between financial constraints and educational excellence across 850 cities.
+                </p>
+                <motion.button
+                  className="bg-primary text-white px-8 py-3.5 rounded-md font-bold text-sm hover:bg-primary-dark transition-colors"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Apply Locally
+                </motion.button>
+              </div>
+              <svg className="absolute -bottom-10 -right-10 w-48 h-48 opacity-10" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+              </svg>
+            </motion.div>
+          </AnimateIn>
+        </div>
+      </div>
+    </section>
+  );
+}
