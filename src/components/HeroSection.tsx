@@ -151,9 +151,9 @@ export default function HeroSection() {
           {/* RIGHT — verse + logo (desktop only) */}
           <motion.div
             className="hidden lg:flex flex-col items-center justify-center shrink-0 gap-8"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
           >
             <div className="text-center">
               <p

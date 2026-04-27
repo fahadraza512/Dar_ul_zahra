@@ -70,7 +70,7 @@ export default function ImpactSection() {
               />
             </div>
             <motion.div
-              className="absolute bottom-6 left-6 bg-primary text-white rounded-full w-28 h-28 flex items-center justify-center text-center p-3 shadow-xl"
+              className="absolute bottom-4 left-4 bg-primary text-white rounded-full w-24 h-24 flex items-center justify-center text-center p-3 shadow-xl"
               initial={{ scale: 0, rotate: -20 }}
               whileInView={{ scale: 1, rotate: 0 }}
               viewport={{ once: true }}

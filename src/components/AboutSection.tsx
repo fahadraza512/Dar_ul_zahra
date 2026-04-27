@@ -24,16 +24,16 @@ export default function AboutSection() {
               />
             </div>
             <motion.div
-              className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-5 shadow-xl max-w-[180px]"
+              className="absolute bottom-4 right-4 bg-primary text-white rounded-2xl p-4 shadow-xl max-w-[160px]"
               initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
             >
-              <p className="text-3xl font-bold">30+</p>
+              <p className="text-2xl font-bold">30+</p>
               <p className="text-sm opacity-90 mt-1">Years of Educational Excellence</p>
             </motion.div>
-            <div className="absolute -top-6 -left-6 w-24 h-24 border-4 border-primary/20 rounded-full" />
+            <div className="absolute -top-6 -left-6 w-24 h-24 border-4 border-primary/20 rounded-full hidden md:block" />
           </div>
         </AnimateIn>
 

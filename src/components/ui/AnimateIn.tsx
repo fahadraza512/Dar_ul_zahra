@@ -13,11 +13,12 @@ interface AnimateInProps {
   once?: boolean;
 }
 
+// Use only y-axis and opacity — never x-axis, to prevent horizontal overflow
 const variants = {
-  up:    { hidden: { opacity: 0, y: 40 },  visible: { opacity: 1, y: 0 } },
-  down:  { hidden: { opacity: 0, y: -40 }, visible: { opacity: 1, y: 0 } },
-  left:  { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0 } },
-  right: { hidden: { opacity: 0, x: 50 },  visible: { opacity: 1, x: 0 } },
+  up:    { hidden: { opacity: 0, y: 24 },  visible: { opacity: 1, y: 0 } },
+  down:  { hidden: { opacity: 0, y: -24 }, visible: { opacity: 1, y: 0 } },
+  left:  { hidden: { opacity: 0, y: 16 },  visible: { opacity: 1, y: 0 } },
+  right: { hidden: { opacity: 0, y: 16 },  visible: { opacity: 1, y: 0 } },
   none:  { hidden: { opacity: 0 },          visible: { opacity: 1 } },
 };
 

@@ -28,7 +28,7 @@ export default function TestimonialsSection() {
               />
             </div>
             <motion.div
-              className="absolute bottom-8 left-8 bg-primary text-white rounded-full w-28 h-28 flex items-center justify-center text-center shadow-xl"
+              className="absolute bottom-6 left-6 bg-primary text-white rounded-full w-24 h-24 flex items-center justify-center text-center shadow-xl"
               animate={{ rotate: [0, 5, -5, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >

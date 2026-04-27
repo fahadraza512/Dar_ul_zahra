@@ -59,7 +59,7 @@ export default function WhyUsSection() {
 
           {/* Right image */}
           <AnimateIn direction="right" delay={0.2} className="lg:col-span-5">
-            <div className="relative">
+            <div className="relative pb-6 md:pb-8 overflow-hidden">
               <motion.div
                 className="relative rounded-3xl overflow-hidden group"
                 whileHover={{ scale: 1.02 }}
@@ -73,14 +73,14 @@ export default function WhyUsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c1525]/80 to-transparent" />
               </motion.div>
               <motion.div
-                className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-2xl"
+                className="absolute -bottom-6 left-4 bg-white p-5 md:p-8 rounded-2xl shadow-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, type: "spring", stiffness: 180 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-5xl font-black text-primary mb-1">98%</div>
+                <div className="text-4xl md:text-5xl font-black text-primary mb-1">98%</div>
                 <div className="text-[#0c1525] font-bold text-sm uppercase tracking-wider">Graduation Rate</div>
               </motion.div>
             </div>
