@@ -99,12 +99,12 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
     >
       <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 md:gap-3 group min-w-0">
+        <Link href="/" className="flex items-center gap-2 group shrink-0 min-w-0">
           <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }} className="shrink-0">
             <Image src="/logo.png" alt="Dar ul Zahra" width={56} height={56} className="object-contain md:w-16 md:h-16 lg:w-20 lg:h-20" priority />
           </motion.div>
           <motion.span
-            className="text-base md:text-lg lg:text-2xl tracking-widest uppercase font-nexa transition-colors duration-300 truncate"
+            className="text-sm md:text-base lg:text-xl xl:text-2xl tracking-widest uppercase font-nexa transition-colors duration-300 whitespace-nowrap"
             style={{ color: isScrolled ? "#2d5a1b" : "#ffffff" }}
             whileHover={{ color: "#f15a24" }}
           >
