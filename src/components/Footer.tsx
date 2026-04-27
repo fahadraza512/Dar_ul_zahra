@@ -49,10 +49,10 @@ export default function Footer() {
       </div>
 
       <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 pt-10 md:pt-12 pb-12 md:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 md:gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
 
           {/* Brand */}
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <div className="bg-white rounded-2xl p-4 inline-flex items-center justify-center shadow-lg shadow-black/20 mb-4">
               <Image src="/logo.png" alt="Dar ul Zahra" width={100} height={100} className="object-contain w-20 h-20 md:w-24 md:h-24" />
             </div>
