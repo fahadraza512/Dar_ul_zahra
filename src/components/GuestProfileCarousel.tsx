@@ -40,15 +40,15 @@ const guests = [
   Far cards sit lowest, near cards mid, center on top
 */
 const SLOTS = [
-  { xPct: -52, yPct: 14, scale: 0.60, z: 1, opacity: 0.55 },
-  { xPct: -26, yPct:  7, scale: 0.78, z: 2, opacity: 0.80 },
+  { xPct: -58, yPct: 20, scale: 0.55, z: 1, opacity: 0.55 },
+  { xPct: -28, yPct:  9, scale: 0.75, z: 2, opacity: 0.80 },
   { xPct:   0, yPct:  0, scale: 1.00, z: 5, opacity: 1.00 },
-  { xPct: +26, yPct:  7, scale: 0.78, z: 2, opacity: 0.80 },
-  { xPct: +52, yPct: 14, scale: 0.60, z: 1, opacity: 0.55 },
+  { xPct: +28, yPct:  9, scale: 0.75, z: 2, opacity: 0.80 },
+  { xPct: +58, yPct: 20, scale: 0.55, z: 1, opacity: 0.55 },
 ];
 
-const CARD_W = 230;
-const CARD_H = 320;
+const CARD_W = 200;
+const CARD_H = 360;
 
 export default function GuestProfileCarousel() {
   const [active, setActive] = useState(0);
@@ -98,12 +98,12 @@ export default function GuestProfileCarousel() {
       {/* Carousel stage */}
       <div
         className="relative z-10 w-full flex items-end justify-center"
-        style={{ height: `${CARD_H * 1.4}px` }}
+        style={{ height: `${CARD_H * 1.5}px` }}
       >
         {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
-          const xPx = (slot.xPct / 100) * CARD_W * 3.4;
+          const xPx = (slot.xPct / 100) * CARD_W * 3.8;
           const yPx = (slot.yPct / 100) * CARD_H;
 
           return (
