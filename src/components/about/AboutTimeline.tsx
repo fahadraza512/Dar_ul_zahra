@@ -15,8 +15,8 @@ const milestones = [
 
 export default function AboutTimeline() {
   return (
-    <section className="py-12 md:py-12 md:py-24 bg-[#f8fafc] overflow-hidden">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-6 md:px-12 lg:px-24">
+    <section className="py-12 md:py-24 bg-[#f8fafc] overflow-hidden">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-24">
 
         <AnimateIn direction="up" className="mb-8 md:mb-16">
           <div className="flex items-center gap-3 mb-3 md:mb-4">
