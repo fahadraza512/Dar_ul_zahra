@@ -10,6 +10,8 @@ const styles = `
   @keyframes splash-logo     { 0%,100% { transform: scale(1);   opacity: 1;    }
                                 50%     { transform: scale(1.08); opacity: 0.88; } }
   @keyframes splash-fade-out { to { opacity: 0; pointer-events: none; visibility: hidden; } }
+  @keyframes splash-text-in  { from { opacity: 0; transform: translateY(8px); }
+                                to   { opacity: 1; transform: translateY(0);   } }
 
   #splash-root {
     position: fixed; inset: 0; z-index: 9999;
