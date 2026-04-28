@@ -37,7 +37,7 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
         <div className="w-6 h-px bg-primary" />
         <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">{label}</span>
       </div>
-      <h2 className="font-manrope font-black text-[#0c1525] text-3xl lg:text-4xl tracking-tighter">{title}</h2>
+      <h2 className="font-manrope font-black text-[#0c1525] text-2xl md:text-3xl lg:text-4xl tracking-tighter">{title}</h2>
     </div>
   );
 }
@@ -88,17 +88,17 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="bg-white pb-20 px-6 lg:px-20">
+    <div className="bg-white pb-12 md:pb-20 px-4 md:px-6 lg:px-20">
       <div className="max-w-screen-xl mx-auto">
 
         {/* ── Photo Gallery ── */}
-        <div className="pt-16 pb-16 border-b border-gray-100">
+        <div className="pt-10 md:pt-16 pb-10 md:pb-16">
           <SectionHeader label="Photography" title="Photo Gallery" />
           <MasonryGrid items={photos} onOpen={item => openLightbox(item, photos)} />
         </div>
 
         {/* ── Video Gallery ── */}
-        <div className="pt-16">
+        <div className="pt-6 md:pt-10">
           <SectionHeader label="Videography" title="Video Gallery" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {videos.map((item, i) => (
