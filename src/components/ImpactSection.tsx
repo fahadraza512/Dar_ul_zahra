@@ -35,8 +35,8 @@ export default function ImpactSection() {
               <motion.div
                 key={i}
                 className="flex gap-4 p-4 rounded-xl border border-transparent"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
                 whileHover={{ backgroundColor: "#f9fafb", borderColor: "#f1f5f9", x: 4 }}

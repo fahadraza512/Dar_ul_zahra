@@ -37,8 +37,8 @@ export default function WhyUsSection() {
                 <motion.div
                   key={i}
                   className="flex gap-4 md:gap-5"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12 }}
                 >

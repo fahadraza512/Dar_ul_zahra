@@ -13,12 +13,11 @@ interface AnimateInProps {
   once?: boolean;
 }
 
-// Use only y-axis and opacity — never x-axis, to prevent horizontal overflow
 const variants = {
-  up:    { hidden: { opacity: 0, y: 24 },  visible: { opacity: 1, y: 0 } },
-  down:  { hidden: { opacity: 0, y: -24 }, visible: { opacity: 1, y: 0 } },
-  left:  { hidden: { opacity: 0, y: 16 },  visible: { opacity: 1, y: 0 } },
-  right: { hidden: { opacity: 0, y: 16 },  visible: { opacity: 1, y: 0 } },
+  up:    { hidden: { opacity: 0, y: 30 },  visible: { opacity: 1, y: 0 } },
+  down:  { hidden: { opacity: 0, y: -30 }, visible: { opacity: 1, y: 0 } },
+  left:  { hidden: { opacity: 0, y: 20 },  visible: { opacity: 1, y: 0 } },
+  right: { hidden: { opacity: 0, y: 20 },  visible: { opacity: 1, y: 0 } },
   none:  { hidden: { opacity: 0 },          visible: { opacity: 1 } },
 };
 
@@ -26,12 +25,13 @@ export default function AnimateIn({
   children,
   direction = "up",
   delay = 0,
-  duration = 0.6,
+  duration = 0.55,
   className = "",
   once = true,
 }: AnimateInProps) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once, margin: "-60px" });
+  // margin: "0px" — triggers as soon as ANY part of the element enters the viewport
+  const inView = useInView(ref, { once, margin: "0px" });
 
   return (
     <motion.div
