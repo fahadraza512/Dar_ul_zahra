@@ -11,12 +11,13 @@ const team = [
 ];
 
 // Slot positions for 5 cards: [-2, -1, 0, 1, 2]
+// Slot positions: center on top, cards step down as they go outward
 const SLOTS = [
-  { x: "-240%", scale: 0.60, z: 1,  opacity: 0.5 },
-  { x: "-120%", scale: 0.78, z: 2,  opacity: 0.8 },
-  { x: "0%",    scale: 1.00, z: 5,  opacity: 1 },
-  { x: "120%",  scale: 0.78, z: 2,  opacity: 0.8 },
-  { x: "240%",  scale: 0.60, z: 1,  opacity: 0.5 },
+  { x: "-210%", y: "18%",  scale: 0.60, z: 1, opacity: 0.55 }, // far left
+  { x: "-108%", y: "9%",   scale: 0.78, z: 2, opacity: 0.80 }, // near left
+  { x: "0%",    y: "0%",   scale: 1.00, z: 5, opacity: 1    }, // center (top)
+  { x: "108%",  y: "9%",   scale: 0.78, z: 2, opacity: 0.80 }, // near right
+  { x: "210%",  y: "18%",  scale: 0.60, z: 1, opacity: 0.55 }, // far right
 ];
 
 export default function ProfileCarousel() {
@@ -63,6 +64,7 @@ export default function ProfileCarousel() {
                 style={{ zIndex: slot.z }}
                 animate={{
                   x: slot.x,
+                  y: slot.y,
                   scale: slot.scale,
                   opacity: slot.opacity,
                 }}
