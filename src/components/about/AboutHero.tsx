@@ -204,7 +204,7 @@ export default function AboutHero() {
 
           {/* RIGHT — pills, always visible, no overflow */}
           <motion.div
-            className="shrink-0 w-full lg:w-96 flex items-center justify-center px-4 md:px-8 lg:px-8 pb-6 lg:pb-0 pt-4 lg:pt-0"
+            className="shrink-0 w-full lg:w-96 flex items-center justify-center px-4 md:px-8 lg:px-8 pb-6 lg:pb-0 pt-0 lg:pt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
