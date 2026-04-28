@@ -138,9 +138,9 @@ export default function AboutFoundation() {
                 />
               </div>
 
-              {/* Floating badge — bottom left */}
+              {/* Floating badge — below image on mobile, overlapping on desktop */}
               <motion.div
-                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl px-2.5 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-3"
+                className="mt-3 md:mt-0 md:absolute md:bottom-4 md:left-4 bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl px-3 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-3 w-fit"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -168,8 +168,6 @@ export default function AboutFoundation() {
                 <div className="font-black text-xs md:text-lg leading-none">Est.</div>
                 <div className="font-black text-base md:text-2xl leading-none">2019</div>
               </motion.div>
-
-
             </div>
           </motion.div>
 
