@@ -109,7 +109,7 @@ function FeaturePills({ small = false }: { small?: boolean }) {
 
         return (
           <div
-            key={`${itemIdx}-${i}`}
+            key={i}
             className="absolute left-0"
             style={{
               top: topPx,
