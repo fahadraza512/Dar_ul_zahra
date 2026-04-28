@@ -79,7 +79,7 @@ function FeaturePills() {
   return (
     <div
       ref={containerRef}
-      className="relative w-80 select-none overflow-hidden"
+      className="relative w-full max-w-xs sm:max-w-sm lg:w-80 select-none overflow-hidden"
       style={{ height: VISIBLE * STEP, paddingRight: "20px", paddingTop: "12px", paddingBottom: "12px" }}
       aria-label="Feature carousel"
       role="region"
@@ -232,9 +232,9 @@ export default function AboutHero() {
             </div>
           </motion.div>
 
-          {/* RIGHT — feature pills (original) */}
+          {/* RIGHT — feature pills — shown on all screens, below text on mobile */}
           <motion.div
-            className="hidden lg:flex flex-col items-center shrink-0"
+            className="flex flex-col items-center shrink-0 w-full lg:w-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}

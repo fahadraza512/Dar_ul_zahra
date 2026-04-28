@@ -87,8 +87,8 @@ export default function RootLayout({
             justify-content: center;
           }
           #__splash_blocker img {
-            width: 110px;
-            height: 110px;
+            width: clamp(77px, 16.5vw, 110px);
+            height: clamp(77px, 16.5vw, 110px);
             object-fit: contain;
           }
         `}} />
