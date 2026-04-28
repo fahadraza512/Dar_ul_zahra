@@ -17,8 +17,8 @@ export default function AboutFoundation() {
           {/* ── LEFT — text ── */}
           <motion.div
             className="flex-1 min-w-0"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -138,7 +138,7 @@ export default function AboutFoundation() {
                 />
               </div>
 
-              {/* Floating badge — bottom left — inside bounds */}
+              {/* Floating badge — bottom left */}
               <motion.div
                 className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3"
                 initial={{ opacity: 0, y: 16 }}
@@ -157,7 +157,7 @@ export default function AboutFoundation() {
                 </div>
               </motion.div>
 
-              {/* Floating badge — top right — inside bounds */}
+              {/* Floating badge — top right */}
               <motion.div
                 className="absolute top-4 right-4 bg-primary text-white rounded-2xl shadow-xl px-4 py-3"
                 initial={{ opacity: 0, y: -16 }}

@@ -18,9 +18,9 @@ export default function AboutMission() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Floating card — inside bounds */}
+              {/* Floating card */}
               <motion.div
-                className="absolute bottom-4 right-4 bg-primary text-white rounded-2xl p-4 shadow-2xl shadow-primary/30"
+                className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-6 shadow-2xl shadow-primary/30"
                 initial={{ opacity: 0, scale: 0.7 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -29,8 +29,8 @@ export default function AboutMission() {
                 <p className="text-4xl font-black">30+</p>
                 <p className="text-sm opacity-80 mt-1">Years of Excellence</p>
               </motion.div>
-              {/* Decorative ring — hidden on mobile */}
-              <div className="absolute -top-4 -left-4 w-20 h-20 border-4 border-primary/20 rounded-full hidden md:block" />
+              {/* Decorative ring */}
+              <div className="absolute -top-6 -left-6 w-24 h-24 border-4 border-primary/20 rounded-full" />
             </div>
           </AnimateIn>
 

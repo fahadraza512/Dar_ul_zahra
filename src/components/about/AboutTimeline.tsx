@@ -56,8 +56,8 @@ export default function AboutTimeline() {
                   </motion.div>
 
                   {/* Center dot */}
-                  <div className="hidden lg:flex flex-shrink-0 w-10 h-10 bg-primary rounded-full items-center justify-center shadow-lg shadow-primary/30 z-10">
-                    <div className="w-2.5 h-2.5 bg-white rounded-full" />
+                  <div className="hidden lg:flex flex-shrink-0 w-12 h-12 bg-primary rounded-full items-center justify-center shadow-lg shadow-primary/30 z-10">
+                    <div className="w-3 h-3 bg-white rounded-full" />
                   </div>
 
                   {/* Spacer for opposite side */}
