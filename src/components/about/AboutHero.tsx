@@ -166,7 +166,7 @@ export default function AboutHero() {
 
           {/* LEFT — text block */}
           <motion.div
-            className="w-full lg:flex-1 min-w-0 flex flex-col justify-center px-4 md:px-8 lg:px-24 pt-20 md:pt-24 lg:pt-0 pb-0"
+            className="w-full lg:flex-1 min-w-0 flex flex-col justify-center px-4 md:px-8 lg:px-24 pt-24 md:pt-28 lg:pt-0 pb-0"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
