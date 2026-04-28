@@ -56,7 +56,7 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 w-full flex flex-col justify-center min-h-screen">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 pt-24 pb-14">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
 
           {/* LEFT */}
           <div className="flex-1 min-w-0">
