@@ -1,13 +1,88 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
+// All animations are pure CSS — runs on GPU compositor, zero JS thread lag
+const styles = `
+  @keyframes splash-spin-cw  { to { transform: rotate(360deg);  } }
+  @keyframes splash-spin-ccw { to { transform: rotate(-360deg); } }
+  @keyframes splash-pulse    { 0%,100% { transform: scale(1);   opacity: 0.15; }
+                                50%     { transform: scale(1.22); opacity: 0.38; } }
+  @keyframes splash-logo     { 0%,100% { transform: scale(1);   opacity: 1;    }
+                                50%     { transform: scale(1.08); opacity: 0.88; } }
+  @keyframes splash-fade-out { to { opacity: 0; pointer-events: none; } }
+  @keyframes splash-text-in  { from { opacity: 0; transform: translateY(10px); }
+                                to   { opacity: 1; transform: translateY(0);    } }
+
+  #splash-root {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #f15a24;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: clamp(16px, 4vw, 28px);
+  }
+  #splash-root.hiding {
+    animation: splash-fade-out 0.55s ease-in-out forwards;
+  }
+  .splash-orbit {
+    position: relative;
+    width: clamp(140px, 30vw, 200px);
+    height: clamp(140px, 30vw, 200px);
+  }
+  .splash-ring-outer {
+    position: absolute; inset: 0; border-radius: 50%;
+    border: 2px dashed rgba(255,255,255,0.4);
+    animation: splash-spin-cw 8s linear infinite;
+    will-change: transform;
+  }
+  .splash-ring-inner {
+    position: absolute; inset: 8%; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    animation: splash-spin-ccw 5s linear infinite;
+    will-change: transform;
+  }
+  .splash-pulse-bg {
+    position: absolute; inset: 18%; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    animation: splash-pulse 2.4s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+  .splash-logo-wrap {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .splash-logo {
+    width: 55%; height: 55%; object-fit: contain;
+    animation: splash-logo 1.8s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+  .splash-text-wrap {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 6px;
+  }
+  .splash-title {
+    color: #2d5a1b;
+    font-size: clamp(14px, 4vw, 22px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-family: NexaRustSlab, serif;
+    animation: splash-text-in 0.5s ease-out 0.3s both;
+  }
+  .splash-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: clamp(9px, 2.5vw, 11px);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: splash-text-in 0.5s ease-out 0.5s both;
+  }
+`;
 
 export default function SplashScreen() {
-  const [visible, setVisible] = useState(true);
+  const [hiding, setHiding] = useState(false);
+  const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    // Hide the static blocker only after React has painted this component
-    // Use requestAnimationFrame to ensure we're past the first paint
+    // Hide static blocker — React splash is now painted
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const blocker = document.getElementById("__splash_blocker");
@@ -15,125 +90,31 @@ export default function SplashScreen() {
       });
     });
 
-    const timer = setTimeout(() => setVisible(false), 3000);
-    return () => clearTimeout(timer);
+    // Start fade-out after 2.8s, remove from DOM after animation completes
+    const hideTimer = setTimeout(() => setHiding(true), 2800);
+    const goneTimer = setTimeout(() => setGone(true), 2800 + 600);
+    return () => { clearTimeout(hideTimer); clearTimeout(goneTimer); };
   }, []);
 
+  if (gone) return null;
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          // Start fully visible — no fade-in, no scale-in
-          // The static blocker was already showing this exact layout
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 9999,
-            backgroundColor: "#f15a24",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "clamp(16px, 4vw, 28px)",
-          }}
-        >
-          {/* Circle + Logo */}
-          <div style={{
-            position: "relative",
-            width: "clamp(140px, 30vw, 200px)",
-            height: "clamp(140px, 30vw, 200px)",
-          }}>
-            {/* Outer dashed spinning ring */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              style={{
-                position: "absolute",
-                inset: 0,
-                borderRadius: "50%",
-                border: "2px dashed rgba(255,255,255,0.4)",
-              }}
-            />
-            {/* Inner solid ring */}
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              style={{
-                position: "absolute",
-                inset: "8%",
-                borderRadius: "50%",
-                border: "1px solid rgba(255,255,255,0.25)",
-              }}
-            />
-            {/* Pulse */}
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.35, 0.15] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{
-                position: "absolute",
-                inset: "18%",
-                borderRadius: "50%",
-                backgroundColor: "rgba(255,255,255,0.15)",
-              }}
-            />
-            {/* Logo — starts fully visible, no entrance animation */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="/logo.png"
-                alt="Dar ul Zahra"
-                style={{
-                  width: "55%",
-                  height: "55%",
-                  objectFit: "contain",
-                  display: "block",
-                }}
-              />
-            </div>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
+      <div id="splash-root" className={hiding ? "hiding" : ""}>
+        <div className="splash-orbit">
+          <div className="splash-ring-outer" />
+          <div className="splash-ring-inner" />
+          <div className="splash-pulse-bg" />
+          <div className="splash-logo-wrap">
+            <img src="/logo.png" alt="Dar ul Zahra" className="splash-logo" />
           </div>
-
-          {/* Text — starts fully visible */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-            <p
-              className="font-nexa"
-              style={{
-                color: "#2d5a1b",
-                fontSize: "clamp(14px, 4vw, 22px)",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                margin: 0,
-                textAlign: "center",
-                whiteSpace: "nowrap",
-              }}
-            >
-              DAR-UL-ZAHRA
-            </p>
-            <p
-              style={{
-                color: "rgba(255,255,255,0.65)",
-                fontSize: "clamp(9px, 2.5vw, 11px)",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                margin: 0,
-                textAlign: "center",
-              }}
-            >
-              Educational Centre
-            </p>
-          </div>
-
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </div>
+        <div className="splash-text-wrap">
+          <p className="splash-title">DAR-UL-ZAHRA</p>
+          <p className="splash-sub">Educational Centre</p>
+        </div>
+      </div>
+    </>
   );
 }
