@@ -4,18 +4,16 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function SplashScreen() {
   const [visible, setVisible] = useState(true);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Mark as mounted so we can fade in the React splash smoothly
-    setMounted(true);
-
-    // Remove the static HTML blocker immediately — React splash is now ready
-    const blocker = document.getElementById("__splash_blocker");
-    if (blocker) {
-      // Instant remove — React splash is already rendered and covers it
-      blocker.style.display = "none";
-    }
+    // Hide the static blocker only after React has painted this component
+    // Use requestAnimationFrame to ensure we're past the first paint
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const blocker = document.getElementById("__splash_blocker");
+        if (blocker) blocker.style.display = "none";
+      });
+    });
 
     const timer = setTimeout(() => setVisible(false), 3000);
     return () => clearTimeout(timer);
@@ -25,10 +23,11 @@ export default function SplashScreen() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: mounted ? 1 : 0 }}
-          animate={{ opacity: 1 }}
+          // Start fully visible — no fade-in, no scale-in
+          // The static blocker was already showing this exact layout
+          initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
           style={{
             position: "fixed",
             inset: 0,
@@ -47,7 +46,6 @@ export default function SplashScreen() {
             width: "clamp(140px, 30vw, 200px)",
             height: "clamp(140px, 30vw, 200px)",
           }}>
-
             {/* Outer dashed spinning ring */}
             <motion.div
               animate={{ rotate: 360 }}
@@ -59,7 +57,6 @@ export default function SplashScreen() {
                 border: "2px dashed rgba(255,255,255,0.4)",
               }}
             />
-
             {/* Inner solid ring */}
             <motion.div
               animate={{ rotate: -360 }}
@@ -71,7 +68,6 @@ export default function SplashScreen() {
                 border: "1px solid rgba(255,255,255,0.25)",
               }}
             />
-
             {/* Pulse */}
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.35, 0.15] }}
@@ -83,12 +79,8 @@ export default function SplashScreen() {
                 backgroundColor: "rgba(255,255,255,0.15)",
               }}
             />
-
-            {/* Logo — no pulsing animation, just clean appear */}
-            <motion.div
-              initial={{ scale: 0.6, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            {/* Logo — starts fully visible, no entrance animation */}
+            <div
               style={{
                 position: "absolute",
                 inset: 0,
@@ -107,16 +99,13 @@ export default function SplashScreen() {
                   display: "block",
                 }}
               />
-            </motion.div>
+            </div>
           </div>
 
-          {/* Text */}
+          {/* Text — starts fully visible */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-            <motion.p
+            <p
               className="font-nexa"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
               style={{
                 color: "#2d5a1b",
                 fontSize: "clamp(14px, 4vw, 22px)",
@@ -128,11 +117,8 @@ export default function SplashScreen() {
               }}
             >
               DAR-UL-ZAHRA
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+            </p>
+            <p
               style={{
                 color: "rgba(255,255,255,0.65)",
                 fontSize: "clamp(9px, 2.5vw, 11px)",
@@ -143,7 +129,7 @@ export default function SplashScreen() {
               }}
             >
               Educational Centre
-            </motion.p>
+            </p>
           </div>
 
         </motion.div>
