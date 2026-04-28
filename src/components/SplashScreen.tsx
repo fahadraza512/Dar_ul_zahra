@@ -64,12 +64,16 @@ const styles = `
     text-transform: uppercase;
     white-space: nowrap;
     font-family: NexaRustSlab, serif;
+    opacity: 0;
+    animation: splash-text-in 0.6s ease-out 0.4s forwards;
   }
   .splash-sub {
     color: rgba(255,255,255,0.65);
     font-size: clamp(9px, 2.5vw, 11px);
     letter-spacing: 0.2em;
     text-transform: uppercase;
+    opacity: 0;
+    animation: splash-text-in 0.6s ease-out 0.6s forwards;
   }
 `;
 
