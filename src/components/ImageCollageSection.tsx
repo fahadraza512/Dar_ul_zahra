@@ -67,11 +67,11 @@ export default function ImageCollageSection() {
 
           {/* Left — collage (hidden on mobile, shown on md+) */}
           <AnimateIn direction="left" className="hidden md:block">
-            <div className="relative" style={{ height: 560 }}>
+            <div className="relative h-96 lg:h-[560px]">
               {/* Main large image */}
               <motion.div
                 className="absolute top-0 overflow-hidden rounded-3xl shadow-xl"
-                style={{ height: 360, zIndex: 0, left: "18%", right: 0 }}
+                style={{ height: "65%", zIndex: 0, left: "18%", right: 0 }}
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -89,7 +89,7 @@ export default function ImageCollageSection() {
               {/* Second image */}
               <motion.div
                 className="absolute overflow-hidden rounded-3xl shadow-2xl"
-                style={{ width: "52%", height: 240, bottom: 80, left: 0, zIndex: 10, border: "16px solid white", borderRadius: "24px" }}
+                style={{ width: "52%", height: "43%", bottom: "14%", left: 0, zIndex: 10, border: "12px solid white", borderRadius: "24px" }}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -107,7 +107,7 @@ export default function ImageCollageSection() {
               {/* Orange badge */}
               <motion.div
                 className="absolute bg-primary text-white rounded-2xl shadow-xl flex flex-col items-center justify-center text-center px-4 gap-2"
-                style={{ width: "36%", height: 180, bottom: 80, right: 0, zIndex: 20 }}
+                style={{ width: "36%", height: "32%", bottom: "14%", right: 0, zIndex: 20 }}
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

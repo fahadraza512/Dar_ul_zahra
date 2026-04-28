@@ -42,7 +42,7 @@ function Counter({ value, suffix, prefix }: { value: number; suffix: string; pre
 export default function AboutStats() {
   return (
     <section className="bg-[#0c1525] py-20 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-20">
+      <div className="max-w-screen-xl mx-auto px-8 lg:px-20">
         <AnimateIn direction="up" className="text-center mb-14">
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-8 h-px bg-primary" />

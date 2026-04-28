@@ -37,7 +37,7 @@ export default function StudentsStatsSection() {
 
   return (
     <section ref={ref} className="bg-primary py-12 px-6 lg:px-24">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-screen-xl mx-auto">
 
         {/* Heading */}
         <motion.h2

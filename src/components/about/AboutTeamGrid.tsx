@@ -13,7 +13,7 @@ export default function AboutTeamGrid() {
   return (
     <section className="py-24 bg-white px-6"
       style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(241,90,36,0.04) 1px, transparent 0)", backgroundSize: "40px 40px" }}>
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-screen-xl mx-auto">
 
         <AnimateIn direction="up" className="mb-12">
           <div className="flex items-center gap-2 mb-3">

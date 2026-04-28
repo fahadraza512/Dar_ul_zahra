@@ -13,7 +13,7 @@ export default function MorePage() {
     <>
       <Navbar forceScrolled />
       <main className="min-h-screen bg-white pt-28 px-6 lg:px-24 pb-20">
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-6 h-px bg-primary" />
             <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">More</span>

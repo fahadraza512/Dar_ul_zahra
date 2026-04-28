@@ -89,7 +89,7 @@ export default function GalleryPage() {
 
   return (
     <div className="bg-white pb-20 px-6 lg:px-20">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-screen-xl mx-auto">
 
         {/* ── Photo Gallery ── */}
         <div className="pt-16 pb-16 border-b border-gray-100">

@@ -119,7 +119,7 @@ export default function FacilitiesPage() {
 
       {/* Header */}
       <section className="py-16 px-6 lg:px-24">
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export default function FacilitiesPage() {
 
       {/* Facility rows */}
       <section className="px-6 lg:px-24">
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           {facilities.map((f, i) => (
             <FacilityRow key={i} f={f} i={i} />
           ))}
@@ -153,7 +153,7 @@ export default function FacilitiesPage() {
 
       {/* CTA */}
       <section className="bg-[#f8fafc] py-20 px-6 lg:px-24">
-        <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

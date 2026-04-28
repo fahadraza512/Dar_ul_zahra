@@ -18,7 +18,7 @@ export default function AboutCTA() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-20 relative z-10">
+      <div className="max-w-screen-xl mx-auto px-8 lg:px-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left */}

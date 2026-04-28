@@ -48,7 +48,7 @@ export default function TestimonialsSection() {
               What People Say About Us
             </h2>
 
-            <div className="relative min-h-[220px] md:min-h-[240px]">
+            <div className="relative min-h-52 md:min-h-60">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}

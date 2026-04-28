@@ -19,7 +19,7 @@ export default function Gallery() {
         {/* Fixed hero */}
         <GalleryHero />
         {/* Spacer */}
-        <div style={{ height: "100vh" }} />
+        <div className="h-screen" />
         {/* Scrollable sheet slides over hero */}
         <GalleryScrollSheet>
           <GalleryPage />

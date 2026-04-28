@@ -89,7 +89,7 @@ export default function HowToDonate() {
 
       {/* ── Steps ── */}
       <section className="py-24 px-6 lg:px-24">
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           <motion.div className="mb-14" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-px bg-primary" />
@@ -115,7 +115,7 @@ export default function HowToDonate() {
 
       {/* ── Payment methods ── */}
       <section className="py-24 px-6 lg:px-24 bg-[#f8fafc]">
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-screen-xl mx-auto">
           <motion.div className="mb-14" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-px bg-primary" />
@@ -192,7 +192,7 @@ export default function HowToDonate() {
 
       {/* ── FAQ ── */}
       <section className="py-24 px-6 lg:px-24">
-        <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-16">
+        <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-16">
           <motion.div className="lg:w-80 shrink-0" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-6 h-px bg-primary" />
@@ -243,7 +243,7 @@ export default function HowToDonate() {
         <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg,transparent,rgba(241,90,36,0.4),transparent)" }} />
 
-        <div className="max-w-[1440px] mx-auto relative z-10">
+        <div className="max-w-screen-xl mx-auto relative z-10">
 
           {/* Header */}
           <motion.div className="mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
@@ -378,7 +378,7 @@ export default function HowToDonate() {
       {/* ── CTA ── */}
       <section className="py-24 px-6 lg:px-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-        <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+        <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <h2 className="font-manrope font-black text-white text-3xl lg:text-5xl tracking-tighter mb-2">Be the Guardian of an Orphan.</h2>
             <p className="text-white/60 text-base font-light">Your support keeps 37+ children in school. Join the Kazmi family's mission to educate every child in Kot Adu, Punjab.</p>

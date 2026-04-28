@@ -8,7 +8,7 @@ export default function AboutBento() {
   return (
     <section className="bg-white py-20 px-6"
       style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(241,90,36,0.04) 1px, transparent 0)", backgroundSize: "40px 40px" }}>
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-screen-xl mx-auto">
 
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>

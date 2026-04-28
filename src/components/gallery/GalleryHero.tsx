@@ -108,7 +108,7 @@ export default function GalleryHero() {
 
       {/* Content */}
       <div className="absolute inset-0 z-20 flex flex-col justify-end px-8 lg:px-20 pb-28">
-        <div className="max-w-[1440px] mx-auto w-full">
+        <div className="max-w-screen-xl mx-auto w-full">
 
           {/* Slide type badge */}
           <motion.div

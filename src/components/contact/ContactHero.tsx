@@ -12,7 +12,7 @@ export default function ContactHero() {
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: "linear-gradient(90deg, transparent 0%, rgba(241,90,36,0.4) 50%, transparent 100%)" }} />
 
-      <div className="max-w-[1440px] mx-auto relative z-10">
+      <div className="max-w-screen-xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
 
           <motion.div

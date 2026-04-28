@@ -32,7 +32,7 @@ const values = [
 export default function AboutValues() {
   return (
     <section className="bg-[#f8fafc] py-24 px-6 lg:px-24 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-screen-xl mx-auto">
 
         {/* Header */}
         <motion.div
