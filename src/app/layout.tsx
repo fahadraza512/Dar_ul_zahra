@@ -134,14 +134,10 @@ export default function RootLayout({
         `}} />
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
-        {/* Static splash — identical layout to React splash, no JS needed */}
+        {/* Static splash — orange background + logo only, no text (prevents text flicker on handoff) */}
         <div id="__splash_blocker" aria-hidden="true">
           <div className="sb-ring">
             <img src="/logo.png" alt="" />
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
-            <p className="sb-title">DAR-UL-ZAHRA</p>
-            <p className="sb-sub">Educational Centre</p>
           </div>
         </div>
         <SplashScreen />

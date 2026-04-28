@@ -10,8 +10,8 @@ const styles = `
   @keyframes splash-logo     { 0%,100% { transform: scale(1);   opacity: 1;    }
                                 50%     { transform: scale(1.08); opacity: 0.88; } }
   @keyframes splash-fade-out { to { opacity: 0; pointer-events: none; } }
-  @keyframes splash-text-in  { from { opacity: 0; transform: translateY(10px); }
-                                to   { opacity: 1; transform: translateY(0);    } }
+  @keyframes splash-text-in  { from { opacity: 0; transform: translateY(6px); }
+                                to   { opacity: 1; transform: translateY(0);   } }
 
   #splash-root {
     position: fixed; inset: 0; z-index: 9999;
@@ -66,14 +66,16 @@ const styles = `
     text-transform: uppercase;
     white-space: nowrap;
     font-family: NexaRustSlab, serif;
-    animation: splash-text-in 0.5s ease-out 0.3s both;
+    /* No delay — visible immediately, no flicker */
+    animation: splash-text-in 0.4s ease-out both;
   }
   .splash-sub {
     color: rgba(255,255,255,0.65);
     font-size: clamp(9px, 2.5vw, 11px);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    animation: splash-text-in 0.5s ease-out 0.5s both;
+    /* Tiny delay just for sub-text stagger, not enough to cause flicker */
+    animation: splash-text-in 0.4s ease-out 0.1s both;
   }
 `;
 
