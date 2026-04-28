@@ -273,56 +273,83 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
       <AnimatePresence>
         {open && (
           <motion.div
-            className="lg:hidden bg-white border-t border-gray-100 shadow-lg overflow-y-auto"
-            style={{ maxHeight: "calc(100vh - 72px)" }}
+            className="lg:hidden bg-white border-t border-gray-100 shadow-lg"
+            style={{ maxHeight: "calc(100vh - 68px)", overflowY: "auto" }}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.22 }}
           >
-            <div className="px-4 py-4 flex flex-col gap-1">
-              {/* Main nav links */}
-              <p className="text-[10px] font-black text-primary uppercase tracking-widest px-3 pt-2 pb-1">Navigation</p>
+            <div className="px-4 py-3 flex flex-col gap-0.5">
+
+              {/* Main nav links — compact */}
               {navLinks.map((l, i) => (
-                <motion.div key={l.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.04 }}>
-                  <Link
-                    href={l.href}
-                    className="flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold text-[#0c1525] hover:text-primary hover:bg-primary/5 transition-all"
-                    onClick={() => setOpen(false)}
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-bold text-[#0c1525] hover:text-primary hover:bg-primary/5 transition-all"
+                  onClick={() => setOpen(false)}
+                >
+                  {l.label}
+                </Link>
+              ))}
+
+              {/* More — collapsible accordion */}
+              <div className="mt-1">
+                <button
+                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-[#0c1525] hover:bg-primary/5 transition-all"
+                  onClick={() => setMoreOpen(o => !o)}
+                >
+                  <span>More</span>
+                  <motion.svg
+                    className="w-4 h-4 text-[#5e6d82]"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    animate={{ rotate: moreOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {l.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </button>
 
-              {/* More links grouped */}
-              {moreCategories.map((cat, ci) => (
-                <div key={cat} className="mt-3">
-                  <p className="text-[10px] font-black text-primary uppercase tracking-widest px-3 pb-1">{cat}</p>
-                  {moreLinks.filter(l => l.category === cat).map((l, i) => (
-                    <motion.div key={l.href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: (ci * 3 + i) * 0.03 }}>
-                      <Link
-                        href={l.href}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#5e6d82] hover:text-primary hover:bg-primary/5 transition-all"
-                        onClick={() => setOpen(false)}
-                      >
-                        <span>{l.icon}</span>
-                        {l.label}
-                      </Link>
+                <AnimatePresence>
+                  {moreOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      {/* All more links in a 2-column grid — compact */}
+                      <div className="grid grid-cols-2 gap-1 px-1 pt-1 pb-2">
+                        {moreLinks.map((l) => (
+                          <Link
+                            key={l.href}
+                            href={l.href}
+                            className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium text-[#5e6d82] hover:text-primary hover:bg-primary/5 transition-all"
+                            onClick={() => setOpen(false)}
+                          >
+                            <span className="text-sm">{l.icon}</span>
+                            <span className="truncate">{l.label}</span>
+                          </Link>
+                        ))}
+                      </div>
                     </motion.div>
-                  ))}
-                </div>
-              ))}
+                  )}
+                </AnimatePresence>
+              </div>
 
-              <div className="pt-4 pb-2 px-1">
-                <motion.button
-                  className="w-full bg-primary text-white px-6 py-3 rounded-xl font-bold text-sm"
-                  whileTap={{ scale: 0.97 }}
+              {/* Donate button */}
+              <div className="pt-2 pb-1">
+                <Link
+                  href="/donate"
+                  className="flex items-center justify-center w-full bg-primary text-white px-6 py-3 rounded-xl font-bold text-sm"
                   onClick={() => setOpen(false)}
                 >
                   Donate Now
-                </motion.button>
+                </Link>
               </div>
+
             </div>
           </motion.div>
         )}
