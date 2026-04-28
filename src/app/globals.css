@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
 @font-face {
-  font-family: 'NexaRustSlab';
-  src: url('/fonts/NexaRustSlab-Black3.ttf') format('truetype');
+  font-family: "NexaRustSlab";
+  src: url("/fonts/NexaRustSlab-Black3.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -28,13 +28,21 @@
 }
 
 .hero-overlay {
-  background: linear-gradient(90deg, rgba(12,21,37,0.9) 0%, rgba(12,21,37,0.4) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(12, 21, 37, 0.9) 0%,
+    rgba(12, 21, 37, 0.4) 100%
+  );
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+hr {
+  display: none;
 }
 
 html {

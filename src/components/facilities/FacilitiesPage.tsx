@@ -118,7 +118,7 @@ export default function FacilitiesPage() {
     <div className="bg-white pt-28">
 
       {/* Header */}
-      <section className="py-16 px-6 lg:px-24 border-b border-gray-100">
+      <section className="py-16 px-6 lg:px-24">
         <div className="max-w-[1440px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
