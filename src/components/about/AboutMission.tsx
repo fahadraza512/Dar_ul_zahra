@@ -6,7 +6,7 @@ export default function AboutMission() {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-8 lg:px-20">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
           {/* Left */}
           <AnimateIn direction="left">

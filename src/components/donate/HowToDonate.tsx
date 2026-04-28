@@ -192,7 +192,7 @@ export default function HowToDonate() {
 
       {/* ── FAQ ── */}
       <section className="py-24 px-6 lg:px-24">
-        <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-16">
+        <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-16">
           <motion.div className="lg:w-80 shrink-0" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-6 h-px bg-primary" />
