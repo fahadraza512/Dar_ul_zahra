@@ -19,7 +19,7 @@ export default function DocumentarySection() {
         <div className="absolute inset-0 bg-[#0c1525]/55" />
 
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 px-6 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 px-6 text-center z-10">
           <motion.h2
             className="text-white text-xl md:text-2xl lg:text-4xl font-bold max-w-2xl leading-snug"
             initial={{ opacity: 0, y: 20 }}
@@ -59,8 +59,8 @@ export default function DocumentarySection() {
           </motion.button>
         </div>
 
-        {/* Enhanced curve — layered waves for depth */}
-        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none">
+        {/* Wave — pointer-events-none so it never blocks button clicks */}
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none">
           <svg viewBox="0 0 1440 160" className="w-full h-36 fill-white" preserveAspectRatio="none">
             {/* Back layer — subtle shadow wave */}
             <path
