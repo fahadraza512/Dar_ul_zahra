@@ -31,11 +31,11 @@ export default function Home() {
         <ProgramsSection />
         <LegacySection />
         <AboutSection />
-        <PartnersSection />
         <ScholarshipPrograms />
         <ImpactSection />
         <WhyUsSection />
         <TeamSection />
+        <PartnersSection />
         <TestimonialsSection />
         <CTASection />
       </main>
