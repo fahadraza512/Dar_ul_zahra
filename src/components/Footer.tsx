@@ -43,7 +43,7 @@ export default function Footer() {
     <footer className="bg-[#0c1525] text-white">
       {/* Top wave */}
       <div className="w-full overflow-hidden leading-none">
-        <svg viewBox="0 0 1440 40" className="w-full h-10 fill-white" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 40" className="w-full h-4 md:h-6 lg:h-10 fill-white" preserveAspectRatio="none">
           <path d="M0,40 C360,0 1080,0 1440,40 L1440,0 L0,0 Z" />
         </svg>
       </div>
