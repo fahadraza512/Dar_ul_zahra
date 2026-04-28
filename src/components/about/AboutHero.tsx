@@ -57,9 +57,16 @@ const pillItems = [
   { icon: "military_tech",   label: "Alumni Giving Back" },
 ];
 
-const CARD_H = 52, GAP = 12, STEP = CARD_H + GAP, VISIBLE = 5, CENTER = Math.floor(VISIBLE / 2);
+const CARD_H = 52, GAP = 12, STEP = CARD_H + GAP;
+// Desktop: 5 visible pills. Mobile: 3 visible pills
+const VISIBLE_LG = 5, VISIBLE_SM = 3;
+const CENTER_LG = Math.floor(VISIBLE_LG / 2);
+const CENTER_SM = Math.floor(VISIBLE_SM / 2);
 
-function FeaturePills() {
+function FeaturePills({ small = false }: { small?: boolean }) {
+  const VISIBLE = small ? VISIBLE_SM : VISIBLE_LG;
+  const CENTER  = small ? CENTER_SM  : CENTER_LG;
+
   const [index, setIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -79,8 +86,13 @@ function FeaturePills() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-xs sm:max-w-sm lg:w-80 select-none overflow-hidden"
-      style={{ height: VISIBLE * STEP, paddingRight: "20px", paddingTop: "12px", paddingBottom: "12px" }}
+      className="relative w-full select-none overflow-hidden"
+      style={{
+        height: VISIBLE * STEP,
+        paddingRight: small ? "8px" : "20px",
+        paddingTop: "8px",
+        paddingBottom: "8px",
+      }}
       aria-label="Feature carousel"
       role="region"
     >
@@ -97,17 +109,21 @@ function FeaturePills() {
 
         return (
           <div
-            key={itemIdx}
+            key={`${itemIdx}-${i}`}
             className="absolute left-0"
             style={{
-              top: topPx, height: CARD_H, width: "calc(100% - 16px)",
-              transform: `scale(${scale})`, transformOrigin: "center center",
-              opacity, zIndex: VISIBLE - absDist,
+              top: topPx,
+              height: CARD_H,
+              width: small ? "100%" : "calc(100% - 16px)",
+              transform: `scale(${scale})`,
+              transformOrigin: "center center",
+              opacity,
+              zIndex: VISIBLE - absDist,
               transition: "top 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1), opacity 0.7s ease",
             }}
           >
             <div
-              className="absolute inset-0 flex items-center gap-4 px-5 rounded-2xl overflow-hidden"
+              className="absolute inset-0 flex items-center gap-3 px-4 rounded-2xl overflow-hidden"
               style={{
                 background: isActive
                   ? "linear-gradient(120deg, rgba(241,90,36,0.18) 0%, rgba(241,90,36,0.06) 100%)"
@@ -132,15 +148,15 @@ function FeaturePills() {
               <div
                 className="shrink-0 flex items-center justify-center rounded-lg"
                 style={{
-                  width: isActive ? 36 : 28,
-                  height: isActive ? 36 : 28,
+                  width: isActive ? 32 : 24,
+                  height: isActive ? 32 : 24,
                   background: isActive ? "rgba(241,90,36,0.2)" : "rgba(255,255,255,0.06)",
                   transition: "all 0.9s cubic-bezier(0.4,0,0.2,1)",
                 }}
               >
                 <span
                   className="material-symbols-outlined text-white"
-                  style={{ fontSize: isActive ? "20px" : "15px", transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1)" }}
+                  style={{ fontSize: isActive ? "18px" : "14px", transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1)" }}
                 >
                   {item.icon}
                 </span>
@@ -148,7 +164,7 @@ function FeaturePills() {
               <span
                 className="font-semibold tracking-tight truncate"
                 style={{
-                  fontSize: isActive ? "15px" : "13px",
+                  fontSize: isActive ? "14px" : "12px",
                   color: isActive ? "#ffffff" : "rgba(255,255,255,0.45)",
                   transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1), color 0.7s ease",
                 }}
@@ -156,11 +172,12 @@ function FeaturePills() {
                 {item.label}
               </span>
             </div>
+            {/* Active checkmark badge */}
             <div
-              className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/50 z-20"
+              className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg z-20"
               style={{ opacity: isActive ? 1 : 0, transition: "opacity 1s ease" }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 -960 960 960" fill="white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 -960 960 960" fill="white">
                 <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
               </svg>
             </div>
@@ -192,54 +209,61 @@ export default function AboutHero() {
         </div>
 
         {/* Content — LEFT text + RIGHT pills */}
-        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-24 w-full flex flex-col lg:flex-row items-center justify-between gap-12 pt-20">
+        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-24 w-full flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-12 pt-20 pb-4 lg:pb-0 overflow-y-auto lg:overflow-visible" style={{ maxHeight: "calc(100vh - 80px)" }}>
 
-          {/* LEFT — headline (was missing before) */}
+          {/* LEFT — headline */}
           <motion.div
             className="flex-1 min-w-0"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-3 md:mb-5">
               <div className="w-6 h-px bg-primary" />
               <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">About Us</span>
             </div>
             <h1
-              className="font-nexa font-black text-white leading-tight tracking-wide uppercase mb-5"
-              style={{ fontSize: "clamp(1.6rem, 4vw, 3.5rem)" }}
+              className="font-nexa font-black text-white leading-tight tracking-wide uppercase mb-3 md:mb-5"
+              style={{ fontSize: "clamp(1.4rem, 4vw, 3.5rem)" }}
             >
               Educating Orphans &<br />
               <span className="text-primary">Needy Children</span>
             </h1>
-            <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-md pl-4 border-l-2 border-primary/40 mb-8" style={{ fontWeight: 300 }}>
+            <p className="text-white/60 text-xs md:text-base leading-relaxed max-w-md pl-3 md:pl-4 border-l-2 border-primary/40 mb-4 md:mb-8" style={{ fontWeight: 300 }}>
               A federally registered non-profit charity founded in 2019 by the Kazmi family in Kot Adu, Punjab, Pakistan.
             </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-3 pt-5 border-t border-white/10">
+            <div className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-2 md:gap-y-3 pt-4 md:pt-5 border-t border-white/10">
               {[
                 { n: "37+", l: "Students Funded" },
                 { n: "2019", l: "Year Founded" },
                 { n: "517/20", l: "Reg. No." },
               ].map((s, i) => (
-                <div key={i} className="flex items-center gap-5">
+                <div key={i} className="flex items-center gap-4 md:gap-5">
                   <div>
-                    <div className="text-white font-bold text-base leading-none">{s.n}</div>
-                    <div className="text-white/40 text-xs tracking-wide uppercase mt-1">{s.l}</div>
+                    <div className="text-white font-bold text-sm md:text-base leading-none">{s.n}</div>
+                    <div className="text-white/40 text-[10px] md:text-xs tracking-wide uppercase mt-1">{s.l}</div>
                   </div>
-                  {i < 2 && <div className="w-px h-6 bg-white/10" />}
+                  {i < 2 && <div className="w-px h-5 md:h-6 bg-white/10" />}
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* RIGHT — feature pills — shown on all screens, below text on mobile */}
+          {/* RIGHT — feature pills: 3 visible on mobile, 5 on desktop */}
           <motion.div
-            className="flex flex-col items-center shrink-0 w-full lg:w-auto"
+            className="shrink-0 w-full lg:w-80"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <FeaturePills />
+            {/* Mobile: 3 pills */}
+            <div className="block lg:hidden">
+              <FeaturePills small={true} />
+            </div>
+            {/* Desktop: 5 pills */}
+            <div className="hidden lg:block">
+              <FeaturePills small={false} />
+            </div>
           </motion.div>
 
         </div>
