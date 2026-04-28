@@ -96,8 +96,14 @@ function FeaturePills({ small = false }: { small?: boolean }) {
       aria-label="Feature carousel"
       role="region"
     >
-      {Array.from({ length: VISIBLE + 2 }, (_, i) => {
-        const slotOffset = i - 1;
+      {/*
+        Key each pill by its itemIdx so each item is a stable DOM node.
+        When index advances, each item's topPx changes → CSS transition
+        slides the entire block (content + background) smoothly up.
+        We render VISIBLE+4 items to have enough off-screen items above/below.
+      */}
+      {Array.from({ length: VISIBLE + 4 }, (_, i) => {
+        const slotOffset = i - 2;
         const itemIdx    = ((index + slotOffset) % pillItems.length + pillItems.length) % pillItems.length;
         const item       = pillItems[itemIdx];
         const dist       = slotOffset - CENTER;
@@ -109,7 +115,7 @@ function FeaturePills({ small = false }: { small?: boolean }) {
 
         return (
           <div
-            key={i}
+            key={itemIdx}
             className="absolute left-0"
             style={{
               top: topPx,
@@ -148,15 +154,15 @@ function FeaturePills({ small = false }: { small?: boolean }) {
               <div
                 className="shrink-0 flex items-center justify-center rounded-lg"
                 style={{
-                  width: isActive ? 32 : 24,
-                  height: isActive ? 32 : 24,
+                  width: isActive ? 36 : 28,
+                  height: isActive ? 36 : 28,
                   background: isActive ? "rgba(241,90,36,0.2)" : "rgba(255,255,255,0.06)",
                   transition: "all 0.9s cubic-bezier(0.4,0,0.2,1)",
                 }}
               >
                 <span
                   className="material-symbols-outlined text-white"
-                  style={{ fontSize: isActive ? "18px" : "14px", transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1)" }}
+                  style={{ fontSize: isActive ? "20px" : "15px", transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1)" }}
                 >
                   {item.icon}
                 </span>
@@ -164,7 +170,7 @@ function FeaturePills({ small = false }: { small?: boolean }) {
               <span
                 className="font-semibold tracking-tight truncate"
                 style={{
-                  fontSize: isActive ? "14px" : "12px",
+                  fontSize: isActive ? "15px" : "13px",
                   color: isActive ? "#ffffff" : "rgba(255,255,255,0.45)",
                   transition: "font-size 0.9s cubic-bezier(0.4,0,0.2,1), color 0.7s ease",
                 }}
@@ -174,10 +180,10 @@ function FeaturePills({ small = false }: { small?: boolean }) {
             </div>
             {/* Active checkmark badge */}
             <div
-              className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg z-20"
+              className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/50 z-20"
               style={{ opacity: isActive ? 1 : 0, transition: "opacity 1s ease" }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 -960 960 960" fill="white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 -960 960 960" fill="white">
                 <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
               </svg>
             </div>
