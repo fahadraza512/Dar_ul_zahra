@@ -88,10 +88,6 @@ export default function GuestProfileCarousel() {
 
       {/* Header */}
       <div className="relative z-10 text-center mb-10 md:mb-14 mt-10">
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          <span className="text-white/60 text-xs font-semibold tracking-[0.2em] uppercase">Our Guests</span>
-        </div>
         <h1 className="font-manrope font-black text-white text-3xl md:text-4xl lg:text-5xl tracking-tight">
           Guest Profile
         </h1>
