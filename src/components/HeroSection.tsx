@@ -55,7 +55,7 @@ export default function HeroSection() {
         style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "80px 80px" }}
       />
 
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 w-full flex flex-col justify-center min-h-screen">
+      <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 w-full flex flex-col justify-start min-h-screen">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
 
           {/* LEFT */}
