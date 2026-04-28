@@ -202,19 +202,14 @@ export default function AboutHero() {
             </div>
           </motion.div>
 
-          {/* RIGHT — pills with gap from text on mobile */}
+          {/* RIGHT — pills, 5 visible on all screens */}
           <motion.div
             className="shrink-0 w-full lg:w-96 flex items-start lg:items-center justify-center px-4 md:px-8 lg:px-8 pt-12 pb-6 lg:pt-0 lg:pb-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            {/* Mobile: 3 pills */}
-            <div className="block lg:hidden w-full max-w-sm">
-              <FeaturePills visible={3} center={1} />
-            </div>
-            {/* Desktop: 5 pills */}
-            <div className="hidden lg:block w-full">
+            <div className="w-full max-w-sm lg:max-w-none">
               <FeaturePills visible={5} center={2} />
             </div>
           </motion.div>
