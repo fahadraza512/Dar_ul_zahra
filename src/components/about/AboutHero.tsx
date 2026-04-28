@@ -86,10 +86,11 @@ function FeaturePills({ small = false }: { small?: boolean }) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full select-none overflow-hidden"
+      className="relative w-full select-none overflow-visible"
       style={{
         height: VISIBLE * STEP,
-        paddingRight: small ? "8px" : "20px",
+        paddingRight: small ? "12px" : "20px",
+        paddingLeft: "4px",
         paddingTop: "8px",
         paddingBottom: "8px",
       }}
@@ -120,7 +121,7 @@ function FeaturePills({ small = false }: { small?: boolean }) {
             style={{
               top: topPx,
               height: CARD_H,
-              width: small ? "100%" : "calc(100% - 16px)",
+              width: small ? "calc(100% - 12px)" : "calc(100% - 20px)",
               transform: `scale(${scale})`,
               transformOrigin: "center center",
               opacity,
@@ -215,7 +216,7 @@ export default function AboutHero() {
         </div>
 
         {/* Content — LEFT text + RIGHT pills */}
-        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-24 w-full flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-12 pt-20 pb-4 lg:pb-0 overflow-y-auto lg:overflow-visible" style={{ maxHeight: "calc(100vh - 80px)" }}>
+        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-24 w-full flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 lg:gap-12 pt-20 pb-4 lg:pb-0 overflow-y-auto lg:overflow-visible" style={{ maxHeight: "calc(100vh - 80px)" }}>
 
           {/* LEFT — headline */}
           <motion.div
@@ -229,8 +230,8 @@ export default function AboutHero() {
               <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">About Us</span>
             </div>
             <h1
-              className="font-nexa font-black text-white leading-tight tracking-wide uppercase mb-3 md:mb-5"
-              style={{ fontSize: "clamp(1.4rem, 4vw, 3.5rem)" }}
+              className="font-manrope font-black text-white leading-tight uppercase mb-3 md:mb-5"
+              style={{ fontSize: "clamp(1.4rem, 4vw, 3.5rem)", letterSpacing: "0.02em" }}
             >
               Educating Orphans &<br />
               <span className="text-primary">Needy Children</span>
@@ -257,7 +258,7 @@ export default function AboutHero() {
 
           {/* RIGHT — feature pills: 3 visible on mobile, 5 on desktop */}
           <motion.div
-            className="shrink-0 w-full lg:w-80"
+            className="shrink-0 w-full lg:w-80 px-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
