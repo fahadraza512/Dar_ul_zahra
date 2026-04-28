@@ -62,16 +62,16 @@ export default function GuestProfileCarousel() {
   });
 
   return (
-    <section className="relative min-h-screen bg-[#0a0a0f] flex flex-col items-center justify-center overflow-hidden py-20 px-4">
+    <section className="relative min-h-screen bg-white flex flex-col items-center justify-center overflow-hidden py-20 px-4">
 
       {/* Ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-600/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-0 right-1/4 w-64 h-64 bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-600/4 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-64 h-64 bg-primary/4 rounded-full blur-3xl pointer-events-none" />
 
       {/* Subtle grid */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
       {/* Ghost heading */}
       <div className="absolute top-10 left-0 right-0 flex justify-center pointer-events-none select-none z-0">
@@ -79,7 +79,7 @@ export default function GuestProfileCarousel() {
           style={{
             fontSize: "clamp(2rem, 9vw, 7rem)",
             color: "transparent",
-            WebkitTextStroke: "1px rgba(255,255,255,0.06)",
+            WebkitTextStroke: "1px rgba(0,0,0,0.06)",
             lineHeight: 1,
           }}>
           GUEST PROFILE
@@ -88,7 +88,7 @@ export default function GuestProfileCarousel() {
 
       {/* Header */}
       <div className="relative z-10 text-center mb-10 md:mb-14 mt-10">
-        <h1 className="font-manrope font-black text-white text-3xl md:text-4xl lg:text-5xl tracking-tight">
+        <h1 className="font-manrope font-black text-[#0c1525] text-3xl md:text-4xl lg:text-5xl tracking-tight">
           Guest Profile
         </h1>
       </div>
@@ -154,15 +154,15 @@ export default function GuestProfileCarousel() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 md:p-6 text-center">
-            <h2 className="font-manrope font-black text-white text-xl md:text-2xl mb-1">
+          <div className="bg-white border border-gray-100 shadow-lg rounded-2xl p-5 md:p-6 text-center">
+            <h2 className="font-manrope font-black text-[#0c1525] text-xl md:text-2xl mb-1">
               {guests[active].name}
             </h2>
             <p className="text-primary text-xs uppercase tracking-[0.25em] font-bold mb-3">
               {guests[active].role}
             </p>
-            <div className="w-12 h-px bg-white/20 mx-auto mb-3" />
-            <p className="text-white/50 text-sm leading-relaxed">
+            <div className="w-12 h-px bg-gray-200 mx-auto mb-3" />
+            <p className="text-[#5e6d82] text-sm leading-relaxed">
               {guests[active].bio}
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function GuestProfileCarousel() {
       {/* Controls */}
       <div className="relative z-10 flex items-center gap-5 mt-6 md:mt-8">
         <motion.button onClick={prev}
-          className="w-11 h-11 rounded-full bg-white/8 border border-white/15 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+          className="w-11 h-11 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-[#0c1525] hover:bg-primary hover:border-primary hover:text-white transition-all"
           whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} aria-label="Previous">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -182,13 +182,13 @@ export default function GuestProfileCarousel() {
         <div className="flex gap-2 items-center">
           {guests.map((_, i) => (
             <button key={i} onClick={() => setActive(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "bg-primary w-8" : "bg-white/25 w-1.5 hover:bg-white/50"}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "bg-primary w-8" : "bg-gray-300 w-1.5 hover:bg-gray-400"}`}
               aria-label={`Go to ${guests[i].name}`} />
           ))}
         </div>
 
         <motion.button onClick={next}
-          className="w-11 h-11 rounded-full bg-white/8 border border-white/15 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+          className="w-11 h-11 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-[#0c1525] hover:bg-primary hover:border-primary hover:text-white transition-all"
           whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} aria-label="Next">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -196,7 +196,7 @@ export default function GuestProfileCarousel() {
         </motion.button>
       </div>
 
-      <p className="relative z-10 text-white/20 text-xs font-mono mt-4 tracking-widest">
+      <p className="relative z-10 text-[#5e6d82]/40 text-xs font-mono mt-4 tracking-widest">
         {String(active + 1).padStart(2, "0")} / {String(guests.length).padStart(2, "0")}
       </p>
 
