@@ -138,9 +138,9 @@ export default function AboutFoundation() {
                 />
               </div>
 
-              {/* Floating badge — bottom left */}
+              {/* Floating badge — bottom left — hidden on mobile to avoid logo overlap */}
               <motion.div
-                className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3"
+                className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 hidden md:flex"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -157,9 +157,9 @@ export default function AboutFoundation() {
                 </div>
               </motion.div>
 
-              {/* Floating badge — top right */}
+              {/* Floating badge — top right — hidden on mobile to avoid logo overlap */}
               <motion.div
-                className="absolute top-4 right-4 bg-primary text-white rounded-2xl shadow-xl px-4 py-3"
+                className="absolute top-4 right-4 bg-primary text-white rounded-2xl shadow-xl px-4 py-3 hidden md:block"
                 initial={{ opacity: 0, y: -16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
