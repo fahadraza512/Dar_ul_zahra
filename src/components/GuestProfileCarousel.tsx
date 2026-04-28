@@ -50,7 +50,8 @@ const SLOTS = [
 
 export default function GuestProfileCarousel() {
   const [active, setActive] = useState(0);
-  const [vw, setVw] = useState(390); // default mobile
+  const [vw, setVw] = useState(390);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const update = () => setVw(window.innerWidth);
@@ -59,16 +60,32 @@ export default function GuestProfileCarousel() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
+  // Auto-advance every 3s, pause on user interaction, resume after 5s
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => {
+      setActive(a => (a + 1) % guests.length);
+    }, 3000);
+    return () => clearInterval(t);
+  }, [paused]);
+
+  const handleUserNav = useCallback((fn: () => void) => {
+    setPaused(true);
+    fn();
+    // Resume auto-play after 5s of inactivity
+    const t = setTimeout(() => setPaused(false), 5000);
+    return () => clearTimeout(t);
+  }, []);
+
+  const prev = useCallback(() => handleUserNav(() => setActive(a => (a - 1 + guests.length) % guests.length)), [handleUserNav]);
+  const next = useCallback(() => handleUserNav(() => setActive(a => (a + 1) % guests.length)), [handleUserNav]);
+
   // Responsive card dimensions
   const CARD_W = vw < 480 ? 130 : vw < 768 ? 160 : 200;
   const CARD_H = vw < 480 ? 190 : vw < 768 ? 240 : 360;
   const SPREAD = vw < 480 ? 3.0 : vw < 768 ? 3.4 : 3.8;
 
-  const prev = useCallback(() => setActive(a => (a - 1 + guests.length) % guests.length), []);
-  const next = useCallback(() => setActive(a => (a + 1) % guests.length), []);
-
-  const slots = [-2, -1, 0, 1, 2].map((offset, si) => {
-    const idx = (active + offset + guests.length) % guests.length;
+  const slots = [-2, -1, 0, 1, 2].map((offset, si) => {    const idx = (active + offset + guests.length) % guests.length;
     return { guest: guests[idx], slot: SLOTS[si], isCenter: offset === 0, offset };
   });
 
@@ -120,7 +137,7 @@ export default function GuestProfileCarousel() {
               style={{ width: w, height: h, zIndex: slot.z, left: "50%", bottom: 0 }}
               animate={{ x: xPx - w / 2, y: -yPx + (CARD_H - h), opacity: slot.opacity }}
               transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
-              onClick={() => { if (offset !== 0) setActive(a => (a + offset + guests.length) % guests.length); }}
+              onClick={() => { if (offset !== 0) handleUserNav(() => setActive(a => (a + offset + guests.length) % guests.length)); }}
               whileHover={!isCenter ? { scale: 1.05, opacity: 0.9 } : {}}
             >
               <div className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden relative"
@@ -192,7 +209,7 @@ export default function GuestProfileCarousel() {
 
         <div className="flex gap-2 items-center">
           {guests.map((_, i) => (
-            <button key={i} onClick={() => setActive(i)}
+            <button key={i} onClick={() => handleUserNav(() => setActive(i))}
               className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "bg-primary w-8" : "bg-gray-300 w-1.5 hover:bg-gray-400"}`}
               aria-label={`Go to ${guests[i].name}`} />
           ))}
@@ -210,6 +227,19 @@ export default function GuestProfileCarousel() {
       <p className="relative z-10 text-[#5e6d82]/40 text-xs font-mono mt-4 tracking-widest">
         {String(active + 1).padStart(2, "0")} / {String(guests.length).padStart(2, "0")}
       </p>
+
+      {/* Auto-play progress bar */}
+      {!paused && (
+        <div className="relative z-10 w-32 h-0.5 bg-gray-200 rounded-full mt-3 overflow-hidden">
+          <motion.div
+            className="h-full bg-primary rounded-full"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 3, ease: "linear" }}
+            key={active}
+          />
+        </div>
+      )}
 
     </section>
   );
