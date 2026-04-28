@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-// All animations are pure CSS — runs on GPU compositor, zero JS thread lag
+// Pure CSS animations — GPU compositor thread, zero JS lag
 const styles = `
   @keyframes splash-spin-cw  { to { transform: rotate(360deg);  } }
   @keyframes splash-spin-ccw { to { transform: rotate(-360deg); } }
@@ -9,9 +9,7 @@ const styles = `
                                 50%     { transform: scale(1.22); opacity: 0.38; } }
   @keyframes splash-logo     { 0%,100% { transform: scale(1);   opacity: 1;    }
                                 50%     { transform: scale(1.08); opacity: 0.88; } }
-  @keyframes splash-fade-out { to { opacity: 0; pointer-events: none; } }
-  @keyframes splash-text-in  { from { opacity: 0; transform: translateY(6px); }
-                                to   { opacity: 1; transform: translateY(0);   } }
+  @keyframes splash-fade-out { to { opacity: 0; pointer-events: none; visibility: hidden; } }
 
   #splash-root {
     position: fixed; inset: 0; z-index: 9999;
@@ -66,16 +64,12 @@ const styles = `
     text-transform: uppercase;
     white-space: nowrap;
     font-family: NexaRustSlab, serif;
-    /* No delay — visible immediately, no flicker */
-    animation: splash-text-in 0.4s ease-out both;
   }
   .splash-sub {
     color: rgba(255,255,255,0.65);
     font-size: clamp(9px, 2.5vw, 11px);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    /* Tiny delay just for sub-text stagger, not enough to cause flicker */
-    animation: splash-text-in 0.4s ease-out 0.1s both;
   }
 `;
 
@@ -84,17 +78,8 @@ export default function SplashScreen() {
   const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    // Hide static blocker — React splash is now painted
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const blocker = document.getElementById("__splash_blocker");
-        if (blocker) blocker.style.display = "none";
-      });
-    });
-
-    // Start fade-out after 2.8s, remove from DOM after animation completes
     const hideTimer = setTimeout(() => setHiding(true), 2800);
-    const goneTimer = setTimeout(() => setGone(true), 2800 + 600);
+    const goneTimer = setTimeout(() => setGone(true), 3400);
     return () => { clearTimeout(hideTimer); clearTimeout(goneTimer); };
   }, []);
 
@@ -103,7 +88,7 @@ export default function SplashScreen() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <div id="splash-root" className={hiding ? "hiding" : ""}>
+      <div id="splash-root" className={hiding ? "hiding" : ""} suppressHydrationWarning>
         <div className="splash-orbit">
           <div className="splash-ring-outer" />
           <div className="splash-ring-inner" />
