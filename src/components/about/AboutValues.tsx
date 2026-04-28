@@ -31,7 +31,7 @@ const values = [
 
 export default function AboutValues() {
   return (
-    <section className="bg-[#f8fafc] py-12 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <section className="bg-[#f8fafc] py-24 px-6 lg:px-24 overflow-hidden">
       <div className="max-w-screen-xl mx-auto">
 
         {/* Header */}

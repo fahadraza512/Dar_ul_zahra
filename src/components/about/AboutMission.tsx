@@ -4,9 +4,9 @@ import AnimateIn from "@/components/ui/AnimateIn";
 
 export default function AboutMission() {
   return (
-    <section className="py-12 md:py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-8 lg:px-20">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* Left */}
           <AnimateIn direction="left">
@@ -20,7 +20,7 @@ export default function AboutMission() {
               </div>
               {/* Floating card */}
               <motion.div
-                className="absolute bottom-3 right-3 bg-primary text-white rounded-2xl p-4 shadow-2xl shadow-primary/30"
+                className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-6 shadow-2xl shadow-primary/30"
                 initial={{ opacity: 0, scale: 0.7 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -29,7 +29,8 @@ export default function AboutMission() {
                 <p className="text-4xl font-black">30+</p>
                 <p className="text-sm opacity-80 mt-1">Years of Excellence</p>
               </motion.div>
-              <div className="absolute -top-4 -left-4 w-20 h-20 border-4 border-primary/20 rounded-full hidden md:block" />
+              {/* Decorative ring */}
+              <div className="absolute -top-6 -left-6 w-24 h-24 border-4 border-primary/20 rounded-full" />
             </div>
           </AnimateIn>
 
@@ -39,7 +40,7 @@ export default function AboutMission() {
               <span className="w-8 h-px bg-primary" />
               <span className="text-primary text-xs font-mono tracking-[0.25em] uppercase">Our Mission</span>
             </div>
-            <h2 className="font-manrope font-black text-[#0c1525] text-2xl md:text-4xl lg:text-5xl leading-tight mb-6">
+            <h2 className="font-manrope font-black text-[#0c1525] text-4xl lg:text-5xl leading-tight mb-6">
               Removing Barriers,<br />
               <span className="text-primary">Unlocking Potential</span>
             </h2>

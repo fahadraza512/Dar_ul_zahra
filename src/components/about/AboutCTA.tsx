@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AboutCTA() {
   return (
-    <section className="py-12 md:py-24 bg-[#0c1525] overflow-hidden relative">
+    <section className="py-24 bg-[#0c1525] overflow-hidden relative">
       {/* Animated blobs */}
       <motion.div
         className="absolute -top-32 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl"

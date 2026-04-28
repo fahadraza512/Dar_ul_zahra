@@ -5,7 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 
 export default function AboutFooterCTA() {
   return (
-    <section className="bg-white py-10 md:py-20 px-6">
+    <section className="bg-white py-20 px-6">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 
         <AnimateIn direction="left">

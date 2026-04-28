@@ -6,8 +6,7 @@ export default function AboutScrollSheet({ children }: { children: React.ReactNo
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
-  // Animate border-radius from rounded to flat as user scrolls — same as gallery
-  const borderRadius = useTransform(scrollY, [0, 80], ["2.5rem 2.5rem 0 0", "0 0 0 0"]);
+  // Only a subtle shadow fade — no y movement, no scale (causes text jitter on mobile)
   const shadow = useTransform(
     scrollY,
     [0, 120],
@@ -18,7 +17,7 @@ export default function AboutScrollSheet({ children }: { children: React.ReactNo
     <motion.div
       ref={ref}
       className="relative z-10 overflow-hidden"
-      style={{ borderRadius, boxShadow: shadow }}
+      style={{ boxShadow: shadow }}
     >
       {children}
     </motion.div>

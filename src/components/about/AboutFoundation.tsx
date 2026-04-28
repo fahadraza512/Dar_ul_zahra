@@ -10,7 +10,7 @@ const facts = [
 
 export default function AboutFoundation() {
   return (
-    <section className="bg-white py-12 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden relative z-10">
+    <section className="bg-white py-24 px-6 lg:px-24 overflow-hidden relative z-10">
       <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-24">
 
@@ -115,7 +115,7 @@ export default function AboutFoundation() {
 
           {/* ── RIGHT — image ── */}
           <motion.div
-            className="w-full md:w-96 lg:w-[480px] xl:w-[540px] shrink-0"
+            className="lg:w-[480px] xl:w-[540px] shrink-0"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

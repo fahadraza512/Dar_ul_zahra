@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ContactHero() {
   return (
-    <section className="relative bg-[#0c1525] pt-44 pb-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <section className="relative bg-[#0c1525] pt-44 pb-24 px-6 lg:px-24 overflow-hidden">
       {/* Background glows */}
       <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-primary/4 rounded-full blur-[100px] pointer-events-none" />

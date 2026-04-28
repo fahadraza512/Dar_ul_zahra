@@ -239,7 +239,7 @@ export default function ContactSection() {
 
   return (
     <section className="min-h-screen bg-white">
-      <div className="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-24 py-16">
+      <div className="max-w-screen-xl mx-auto px-6 lg:px-24 py-16">
 
         {/* Page heading */}
         <motion.div
