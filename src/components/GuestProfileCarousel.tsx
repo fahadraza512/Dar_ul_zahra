@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const guests = [
@@ -48,11 +48,22 @@ const SLOTS = [
   { xPct: +58, yPct: 20, scale: 0.55, z: 1, opacity: 0.45 },
 ];
 
-const CARD_W = 200;
-const CARD_H = 360;
-
 export default function GuestProfileCarousel() {
   const [active, setActive] = useState(0);
+  const [vw, setVw] = useState(390); // default mobile
+
+  useEffect(() => {
+    const update = () => setVw(window.innerWidth);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Responsive card dimensions
+  const CARD_W = vw < 480 ? 130 : vw < 768 ? 160 : 200;
+  const CARD_H = vw < 480 ? 190 : vw < 768 ? 240 : 360;
+  const SPREAD = vw < 480 ? 3.0 : vw < 768 ? 3.4 : 3.8;
+
   const prev = useCallback(() => setActive(a => (a - 1 + guests.length) % guests.length), []);
   const next = useCallback(() => setActive(a => (a + 1) % guests.length), []);
 
@@ -99,7 +110,7 @@ export default function GuestProfileCarousel() {
         {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
-          const xPx = (slot.xPct / 100) * CARD_W * 3.8;
+          const xPx = (slot.xPct / 100) * CARD_W * SPREAD;
           const yPx = (slot.yPct / 100) * CARD_H;
 
           return (
