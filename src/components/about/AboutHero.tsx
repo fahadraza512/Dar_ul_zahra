@@ -166,7 +166,7 @@ export default function AboutHero() {
 
           {/* LEFT — text block */}
           <motion.div
-            className="flex-1 min-w-0 flex flex-col justify-center px-4 md:px-8 lg:px-24 pt-20 lg:pt-0 pb-0"
+            className="flex-1 min-w-0 flex flex-col justify-end lg:justify-center px-4 md:px-8 lg:px-24 pt-20 lg:pt-0 pb-2 lg:pb-0"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -204,7 +204,7 @@ export default function AboutHero() {
 
           {/* RIGHT — pills, always visible, no overflow */}
           <motion.div
-            className="shrink-0 w-full lg:w-96 flex items-center justify-center px-4 md:px-8 lg:px-8 pb-6 lg:pb-0 pt-0 lg:pt-0"
+            className="shrink-0 w-full lg:w-96 flex items-start lg:items-center justify-center px-4 md:px-8 lg:px-8 pb-4 lg:pb-0 pt-0 lg:pt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
