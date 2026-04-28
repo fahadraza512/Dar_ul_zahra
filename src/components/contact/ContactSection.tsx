@@ -382,21 +382,21 @@ export default function ContactSection() {
                   <label className="block text-xs font-bold text-[#0c1525] uppercase tracking-wider mb-2">
                     Phone Number
                   </label>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 w-full">
                     {/* Custom dial code picker */}
                     <div ref={dialRef} className="relative shrink-0">
                       <button
                         type="button"
                         onClick={() => setDialOpen(o => !o)}
-                        className="bg-white border border-gray-200 rounded-xl px-3 py-3.5 text-sm text-[#0c1525] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all flex items-center gap-2 min-w-[110px]"
+                        className="bg-white border border-gray-200 rounded-xl px-3 py-3.5 text-sm text-[#0c1525] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all flex items-center gap-1.5 w-[90px]"
                       >
-                        <span className="font-semibold">{dialCode}</span>
-                        <svg className={`w-3.5 h-3.5 text-gray-400 ml-auto transition-transform ${dialOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="font-semibold truncate">{dialCode}</span>
+                        <svg className={`w-3 h-3 text-gray-400 shrink-0 transition-transform ${dialOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
                       {dialOpen && (
-                        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-y-auto" style={{ maxHeight: 220, minWidth: 220 }}>
+                        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-y-auto" style={{ maxHeight: 220, minWidth: 200 }}>
                           {dialCodes.map((d, i) => (
                             <button
                               key={i}
@@ -404,7 +404,7 @@ export default function ContactSection() {
                               onClick={() => { setDialCode(d.code); setDialOpen(false); }}
                               className={`w-full text-left px-4 py-2.5 text-sm hover:bg-primary/5 hover:text-primary transition-colors flex items-center justify-between gap-3 ${dialCode === d.code ? "bg-primary/5 text-primary font-semibold" : "text-[#0c1525]"}`}
                             >
-                              <span>{d.country}</span>
+                              <span className="truncate">{d.country}</span>
                               <span className="text-[#5e6d82] text-xs shrink-0">{d.code}</span>
                             </button>
                           ))}
@@ -412,7 +412,7 @@ export default function ContactSection() {
                       )}
                     </div>
                     <input type="tel" placeholder="300 1234567"
-                      className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-sm text-[#0c1525] placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" />
+                      className="min-w-0 flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-sm text-[#0c1525] placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all" />
                   </div>
                 </div>
 

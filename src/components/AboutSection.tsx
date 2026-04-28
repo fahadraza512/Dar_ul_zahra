@@ -24,14 +24,14 @@ export default function AboutSection() {
               />
             </div>
             <motion.div
-              className="absolute bottom-4 right-4 bg-primary text-white rounded-2xl p-4 shadow-xl max-w-[160px]"
+              className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-primary text-white rounded-xl md:rounded-2xl px-3 py-2 md:p-4 shadow-xl max-w-[120px] md:max-w-[160px]"
               initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
             >
-              <p className="text-2xl font-bold">30+</p>
-              <p className="text-sm opacity-90 mt-1">Years of Educational Excellence</p>
+              <p className="text-xl md:text-2xl font-bold leading-none">30+</p>
+              <p className="text-[10px] md:text-sm opacity-90 mt-1 leading-tight">Years of Educational Excellence</p>
             </motion.div>
             <div className="absolute -top-6 -left-6 w-24 h-24 border-4 border-primary/20 rounded-full hidden md:block" />
           </div>

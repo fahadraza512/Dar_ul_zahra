@@ -70,16 +70,16 @@ export default function ImpactSection() {
               />
             </div>
             <motion.div
-              className="absolute bottom-4 left-4 bg-primary text-white rounded-full w-24 h-24 flex items-center justify-center text-center p-3 shadow-xl"
+              className="absolute bottom-4 left-4 bg-primary text-white rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2"
               initial={{ scale: 0, rotate: -20 }}
               whileInView={{ scale: 1, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, type: "spring", stiffness: 180 }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
             >
               <div>
-                <p className="text-xl font-bold">PKR 15B</p>
-                <p className="text-xs opacity-90">in Scholarships</p>
+                <p className="text-base md:text-lg font-black leading-none">PKR 15B</p>
+                <p className="text-[10px] md:text-xs opacity-90 mt-0.5">in Scholarships</p>
               </div>
             </motion.div>
           </div>

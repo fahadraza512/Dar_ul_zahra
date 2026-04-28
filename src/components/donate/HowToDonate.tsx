@@ -125,19 +125,19 @@ export default function HowToDonate() {
           </motion.div>
 
           <div className="flex flex-col lg:flex-row gap-6">
-            {/* Tabs */}
-            <div className="flex lg:flex-col gap-3 lg:w-60 shrink-0">
+            {/* Tabs — horizontal scroll on mobile, vertical on desktop */}
+            <div className="flex lg:flex-col gap-2 lg:w-60 shrink-0 overflow-x-auto lg:overflow-visible pb-1 lg:pb-0">
               {methods.map(m => (
                 <button key={m.id} onClick={() => setActiveMethod(m.id)}
-                  className={`relative flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-bold text-left transition-all duration-200 overflow-hidden ${
+                  className={`relative flex items-center gap-2 px-4 py-3 rounded-2xl text-sm font-bold text-left transition-all duration-200 overflow-hidden shrink-0 ${
                     activeMethod === m.id
                       ? "bg-[#0c1525] text-white shadow-xl"
                       : "bg-white text-[#5e6d82] hover:bg-gray-50 border border-gray-100"
                   }`}>
                   <span className={activeMethod === m.id ? "text-primary" : ""}>{m.icon}</span>
-                  <span className="flex-1">{m.label}</span>
+                  <span className="whitespace-nowrap">{m.label}</span>
                   {activeMethod === m.id && (
-                    <span className="text-[9px] font-black bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wide">{m.badge}</span>
+                    <span className="text-[9px] font-black bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wide hidden sm:inline">{m.badge}</span>
                   )}
                 </button>
               ))}
