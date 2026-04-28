@@ -12,11 +12,11 @@ const team = [
 
 // Slot positions for 5 cards: [-2, -1, 0, 1, 2]
 const SLOTS = [
-  { x: "-200%", scale: 0.65, z: 1,  opacity: 0.6 },
-  { x: "-105%", scale: 0.80, z: 2,  opacity: 0.85 },
+  { x: "-240%", scale: 0.60, z: 1,  opacity: 0.5 },
+  { x: "-120%", scale: 0.78, z: 2,  opacity: 0.8 },
   { x: "0%",    scale: 1.00, z: 5,  opacity: 1 },
-  { x: "105%",  scale: 0.80, z: 2,  opacity: 0.85 },
-  { x: "200%",  scale: 0.65, z: 1,  opacity: 0.6 },
+  { x: "120%",  scale: 0.78, z: 2,  opacity: 0.8 },
+  { x: "240%",  scale: 0.60, z: 1,  opacity: 0.5 },
 ];
 
 export default function ProfileCarousel() {
