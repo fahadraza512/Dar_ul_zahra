@@ -72,14 +72,14 @@ function FacilityRow({ f, i }: { f: typeof facilities[0]; i: number }) {
   return (
     <motion.div
       ref={ref}
-      className={`flex flex-col md:flex-row items-center gap-12 lg:gap-20 py-16 border-b border-gray-100 last:border-0 ${!isEven ? "md:flex-row-reverse" : ""}`}
+      className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-20 py-10 md:py-16 last:border-0 ${!isEven ? "md:flex-row-reverse" : ""}`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* Image */}
-      <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg" style={{ height: 360 }}>
+      <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg h-56 md:h-72 lg:h-[360px]">
         <motion.img
           src={f.img}
           alt={f.title}
@@ -93,7 +93,7 @@ function FacilityRow({ f, i }: { f: typeof facilities[0]; i: number }) {
         <span className="inline-block text-[10px] font-black text-primary uppercase tracking-[0.25em] bg-primary/8 px-3 py-1.5 rounded-full mb-4">
           {f.badge}
         </span>
-        <h3 className="font-manrope font-black text-[#0c1525] text-3xl lg:text-4xl tracking-tight leading-tight mb-4">
+        <h3 className="font-manrope font-black text-[#0c1525] text-2xl md:text-3xl lg:text-4xl tracking-tight leading-tight mb-4">
           {f.title}
         </h3>
         <div className="w-10 h-0.5 bg-primary rounded-full mb-5" />
@@ -118,7 +118,7 @@ export default function FacilitiesPage() {
     <div className="bg-white pt-28">
 
       {/* Header */}
-      <section className="py-16 px-6 lg:px-24">
+      <section className="py-16 px-6 md:px-12 lg:px-24">
         <div className="max-w-screen-xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -143,7 +143,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Facility rows */}
-      <section className="px-6 lg:px-24">
+      <section className="px-6 md:px-12 lg:px-24">
         <div className="max-w-screen-xl mx-auto">
           {facilities.map((f, i) => (
             <FacilityRow key={i} f={f} i={i} />
@@ -152,7 +152,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f8fafc] py-20 px-6 lg:px-24">
+      <section className="bg-[#f8fafc] py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}

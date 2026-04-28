@@ -88,7 +88,7 @@ export default function HowToDonate() {
     <div className="bg-white pt-28">
 
       {/* ── Steps ── */}
-      <section className="py-24 px-6 lg:px-24">
+      <section className="py-12 md:py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-screen-xl mx-auto">
           <motion.div className="mb-14" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-3">
@@ -114,7 +114,7 @@ export default function HowToDonate() {
       </section>
 
       {/* ── Payment methods ── */}
-      <section className="py-24 px-6 lg:px-24 bg-[#f8fafc]">
+      <section className="py-12 md:py-24 px-6 md:px-12 lg:px-24 bg-[#f8fafc]">
         <div className="max-w-screen-xl mx-auto">
           <motion.div className="mb-14" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-3">
@@ -191,7 +191,7 @@ export default function HowToDonate() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-24 px-6 lg:px-24">
+      <section className="py-12 md:py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-16">
           <motion.div className="lg:w-80 shrink-0" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-4">
@@ -238,7 +238,7 @@ export default function HowToDonate() {
       </section>
 
       {/* ── Sponsor a Child ── */}
-      <section className="bg-[#0c1525] py-24 px-6 lg:px-24 relative overflow-hidden">
+      <section className="bg-[#0c1525] py-12 md:py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         {/* Background glow */}
         <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg,transparent,rgba(241,90,36,0.4),transparent)" }} />
@@ -376,7 +376,7 @@ export default function HowToDonate() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 px-6 lg:px-24 bg-primary relative overflow-hidden">
+      <section className="py-12 md:py-24 px-6 md:px-12 lg:px-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
