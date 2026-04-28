@@ -56,7 +56,7 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20 w-full flex flex-col justify-start min-h-screen">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-14">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 pt-20 md:pt-24 lg:pt-32 pb-10 md:pb-14">
 
           {/* LEFT */}
           <div className="flex-1 min-w-0">
@@ -113,7 +113,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap gap-x-5 md:gap-x-8 gap-y-3 pt-5 md:pt-7 border-t border-white/10"
+              className="grid grid-cols-3 gap-3 pt-5 md:pt-7 border-t border-white/10"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.58 }}
             >
@@ -122,12 +122,9 @@ export default function HeroSection() {
                 { n: "517/20", l: "Federally Registered" },
                 { n: "Est. 2019", l: "Kot Adu, Punjab" },
               ].map((s, i) => (
-                <div key={i} className="flex items-center gap-5 md:gap-7">
-                  <div>
-                    <div className="text-white font-bold text-base md:text-lg leading-none">{s.n}</div>
-                    <div className="text-white/40 text-[10px] tracking-wide uppercase mt-1">{s.l}</div>
-                  </div>
-                  {i < 2 && <div className="w-px h-7 bg-white/10" />}
+                <div key={i}>
+                  <div className="text-white font-bold text-sm md:text-base lg:text-lg leading-none">{s.n}</div>
+                  <div className="text-white/40 text-[9px] md:text-xs tracking-wide uppercase mt-1 leading-tight">{s.l}</div>
                 </div>
               ))}
             </motion.div>
