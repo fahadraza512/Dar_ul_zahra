@@ -138,35 +138,35 @@ export default function AboutFoundation() {
                 />
               </div>
 
-              {/* Floating badge — bottom left — hidden on mobile to avoid logo overlap */}
+              {/* Floating badge — bottom left */}
               <motion.div
-                className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 hidden md:flex"
+                className="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl px-2.5 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-3"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <svg className="w-3.5 h-3.5 md:w-5 md:h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[#0c1525] font-black text-lg leading-none">37+</div>
-                  <div className="text-[#5e6d82] text-xs mt-0.5">Children Educated</div>
+                  <div className="text-[#0c1525] font-black text-sm md:text-lg leading-none">37+</div>
+                  <div className="text-[#5e6d82] text-[10px] md:text-xs mt-0.5">Children Educated</div>
                 </div>
               </motion.div>
 
-              {/* Floating badge — top right — hidden on mobile to avoid logo overlap */}
+              {/* Floating badge — top right */}
               <motion.div
-                className="absolute top-4 right-4 bg-primary text-white rounded-2xl shadow-xl px-4 py-3 hidden md:block"
+                className="absolute top-3 right-3 md:top-4 md:right-4 bg-primary text-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl px-2.5 py-2 md:px-4 md:py-3"
                 initial={{ opacity: 0, y: -16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <div className="font-black text-lg leading-none">Est.</div>
-                <div className="font-black text-2xl leading-none">2019</div>
+                <div className="font-black text-xs md:text-lg leading-none">Est.</div>
+                <div className="font-black text-base md:text-2xl leading-none">2019</div>
               </motion.div>
 
 
