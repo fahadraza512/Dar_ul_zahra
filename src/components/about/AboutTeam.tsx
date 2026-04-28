@@ -3,30 +3,10 @@ import { motion } from "framer-motion";
 import AnimateIn from "@/components/ui/AnimateIn";
 
 const team = [
-  {
-    name: "Ibrahim Hasan Murad",
-    role: "President, ILM Fund",
-    img: "https://ilm.fund/wp-content/uploads/2025/08/abcde.jpg",
-    bio: "Visionary leader with decades of experience in educational philanthropy and institutional development.",
-  },
-  {
-    name: "Mr. Salman Ahmad Malik",
-    role: "Advisor, ILM Fund",
-    img: "https://ilm.fund/wp-content/uploads/2025/08/eee-1-1.jpg",
-    bio: "Strategic advisor bringing expertise in finance, governance, and educational policy reform.",
-  },
-  {
-    name: "Khazra Shahbaz",
-    role: "Assistant Manager Portfolio",
-    img: "https://ilm.fund/wp-content/uploads/2025/08/A1.jpg",
-    bio: "Manages scholarship portfolios and ensures efficient disbursement to deserving students.",
-  },
-  {
-    name: "Waqas Shahid",
-    role: "Head, Internal Audit",
-    img: "https://ilm.fund/wp-content/uploads/2025/08/waqas.jpg",
-    bio: "Ensures complete financial transparency and accountability across all scholarship programs.",
-  },
+  { name: "Ibrahim Hasan Murad", role: "President, ILM Fund", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80", bio: "Visionary leader with decades of experience in educational philanthropy and institutional development." },
+  { name: "Mr. Salman Ahmad Malik", role: "Advisor, ILM Fund", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80", bio: "Strategic advisor bringing expertise in finance, governance, and educational policy reform." },
+  { name: "Khazra Shahbaz", role: "Assistant Manager Portfolio", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80", bio: "Manages scholarship portfolios and ensures efficient disbursement to deserving students." },
+  { name: "Waqas Shahid", role: "Head, Internal Audit", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80", bio: "Ensures complete financial transparency and accountability across all scholarship programs." },
 ];
 
 export default function AboutTeam() {

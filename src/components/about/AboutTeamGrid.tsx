@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import AnimateIn from "@/components/ui/AnimateIn";
 
 const team = [
-  { name: "Ibrahim Hasan Murad", role: "President", img: "https://ilm.fund/wp-content/uploads/2025/08/abcde.jpg" },
-  { name: "Mr. Salman Ahmad Malik", role: "Advisor", img: "https://ilm.fund/wp-content/uploads/2025/08/eee-1-1.jpg" },
-  { name: "Khazra Shahbaz", role: "Assistant Manager Portfolio", img: "https://ilm.fund/wp-content/uploads/2025/08/A1.jpg" },
-  { name: "Waqas Shahid", role: "Head, Internal Audit", img: "https://ilm.fund/wp-content/uploads/2025/08/waqas.jpg" },
+  { name: "Ibrahim Hasan Murad", role: "President", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
+  { name: "Mr. Salman Ahmad Malik", role: "Advisor", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" },
+  { name: "Khazra Shahbaz", role: "Assistant Manager Portfolio", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
+  { name: "Waqas Shahid", role: "Head, Internal Audit", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
 ];
 
 export default function AboutTeamGrid() {
