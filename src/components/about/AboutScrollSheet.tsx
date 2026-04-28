@@ -16,7 +16,7 @@ export default function AboutScrollSheet({ children }: { children: React.ReactNo
   return (
     <motion.div
       ref={ref}
-      className="relative z-10 rounded-t-[2.5rem] overflow-hidden"
+      className="relative z-10 overflow-hidden"
       style={{ boxShadow: shadow }}
     >
       {children}

@@ -17,8 +17,8 @@ export default function AboutFoundation() {
           {/* ── LEFT — text ── */}
           <motion.div
             className="flex-1 min-w-0"
-            initial={{ opacity: 0, x: -32 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -69,8 +69,8 @@ export default function AboutFoundation() {
               </p>
             </div>
 
-            {/* Stats — full width of left column */}
-            <div className="grid grid-cols-4 gap-6 mb-10 py-8 border-t border-b border-gray-100">
+            {/* Stats — responsive grid, no border lines */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10 py-6 md:py-8">
               {facts.map((f, i) => (
                 <motion.div
                   key={i}

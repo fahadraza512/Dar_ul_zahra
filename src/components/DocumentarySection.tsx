@@ -30,27 +30,32 @@ export default function DocumentarySection() {
             Documentary: A Ray of Hope for Passionate Individuals
           </motion.h2>
 
-          {/* Play button */}
+          {/* Play button — redesigned */}
           <motion.button
             onClick={() => setPlaying(true)}
-            className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-2xl shadow-primary/40 relative"
-            initial={{ opacity: 0, scale: 0.5 }}
+            className="relative flex items-center gap-4 group"
+            initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-            whileHover={{ scale: 1.12 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Play documentary"
           >
             {/* Pulse ring */}
-            <motion.span
-              className="absolute inset-0 rounded-full bg-primary/40"
-              animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+            <div className="relative">
+              <motion.span
+                className="absolute inset-0 rounded-full bg-white/30"
+                animate={{ scale: [1, 1.7, 1], opacity: [0.5, 0, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="relative w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <span className="text-white font-bold text-sm md:text-base">Watch Documentary</span>
           </motion.button>
         </div>
 
@@ -87,7 +92,7 @@ export default function DocumentarySection() {
             >
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1"
                 allow="autoplay; fullscreen"
                 allowFullScreen
                 title="Documentary"
