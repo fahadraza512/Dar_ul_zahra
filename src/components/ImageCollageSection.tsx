@@ -71,7 +71,7 @@ export default function ImageCollageSection() {
               {/* Main large image */}
               <motion.div
                 className="absolute top-0 overflow-hidden rounded-3xl shadow-xl"
-                style={{ height: "65%", zIndex: 0, left: "18%", right: 0 }}
+                style={{ height: "80%", zIndex: 0, left: "18%", right: 0 }}
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
