@@ -97,7 +97,7 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                <Link href="/donate" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all mt-2">
+                <Link href="/how-to-donate" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all mt-2">
                   Donate Now →
                 </Link>
               </li>

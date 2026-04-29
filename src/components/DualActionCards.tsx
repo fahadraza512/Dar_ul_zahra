@@ -6,7 +6,7 @@ export default function DualActionCards() {
   return (
     <section className="py-8 md:py-12 lg:py-14 bg-white z-20">
       <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {/* Card 1 */}
           <AnimateIn direction="up" delay={0.1}>
             <motion.div
@@ -31,6 +31,34 @@ export default function DualActionCards() {
               </div>
               <svg className="absolute -bottom-8 -right-8 w-32 md:w-48 h-32 md:h-48 opacity-10" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 11-6-11-6z" />
+              </svg>
+            </motion.div>
+          </AnimateIn>
+
+          {/* Card 3 */}
+          <AnimateIn direction="up" delay={0.2}>
+            <motion.div
+              className="bg-primary p-5 md:p-8 lg:p-12 rounded-2xl text-white relative overflow-hidden h-full"
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="relative z-10">
+                <h3 className="text-base md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 font-manrope">
+                  Federal Merit Scholarship
+                </h3>
+                <p className="text-white/80 mb-4 md:mb-8 text-sm md:text-base lg:text-lg leading-relaxed max-w-md">
+                  Empowering talented students nationwide with fully funded opportunities to achieve academic excellence.
+                </p>
+                <motion.button
+                  className="bg-white text-primary px-4 md:px-8 py-2 md:py-3.5 rounded-md font-bold text-xs md:text-sm hover:bg-gray-100 transition-colors"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Apply Now
+                </motion.button>
+              </div>
+              <svg className="absolute -bottom-8 -right-8 w-32 md:w-48 h-32 md:h-48 opacity-10" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 3L1 9l11 6 11-6-11-6zM1 9v6l11 6 11-6V9" />
               </svg>
             </motion.div>
           </AnimateIn>

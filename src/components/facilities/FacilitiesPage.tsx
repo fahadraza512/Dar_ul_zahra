@@ -172,7 +172,7 @@ export default function FacilitiesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <motion.a href="/contact"
+            <motion.a href="/how-to-donate"
               className="relative bg-primary text-white font-bold text-sm px-8 py-4 rounded-full overflow-hidden shadow-lg shadow-primary/25 flex items-center gap-2 group"
               whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
             >

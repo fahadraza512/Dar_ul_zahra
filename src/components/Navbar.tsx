@@ -162,14 +162,16 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
           </div>
         </nav>
 
-        <motion.button
-          className="hidden lg:block bg-primary text-white px-8 py-3 rounded-md font-bold text-base shadow-lg shadow-primary/20 shrink-0"
-          whileHover={{ scale: 1.04, backgroundColor: "#d44a1a" }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          Donate Now
-        </motion.button>
+        <Link href="/how-to-donate" className="hidden lg:block">
+          <motion.div
+            className="bg-primary text-white px-8 py-3 rounded-md font-bold text-base shadow-lg shadow-primary/20 shrink-0 cursor-pointer"
+            whileHover={{ scale: 1.04, backgroundColor: "#d44a1a" }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            Donate Now
+          </motion.div>
+        </Link>
 
         {/* Mobile hamburger */}
         <button
@@ -244,7 +246,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
                       <p className="text-white/45 text-xs leading-relaxed">Every donation funds education, meals, and shelter for an orphan in need.</p>
                     </div>
                     <Link
-                      href="/donate"
+                      href="/how-to-donate"
                       onClick={() => setMoreOpen(false)}
                       className="mt-4 flex items-center justify-center gap-2 bg-primary text-white text-xs font-bold py-2.5 rounded-xl hover:bg-primary/90 transition-colors group"
                     >
@@ -342,7 +344,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
               {/* Donate button */}
               <div className="pt-2 pb-1">
                 <Link
-                  href="/donate"
+                  href="/how-to-donate"
                   className="flex items-center justify-center w-full bg-primary text-white px-6 py-3 rounded-xl font-bold text-sm"
                   onClick={() => setOpen(false)}
                 >

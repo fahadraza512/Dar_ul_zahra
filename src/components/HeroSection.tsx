@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 const videos = [
@@ -92,15 +93,17 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <motion.button
-                className="relative bg-primary text-white font-bold text-sm px-5 md:px-7 py-2.5 md:py-3 rounded-full overflow-hidden shadow-lg shadow-primary/30 flex items-center gap-2 group"
-                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-              >
-                <span className="relative z-10">Donate Now</span>
-                <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </motion.button>
+              <Link href="/how-to-donate">
+                <motion.div
+                  className="relative bg-primary text-white font-bold text-sm px-5 md:px-7 py-2.5 md:py-3 rounded-full overflow-hidden shadow-lg shadow-primary/30 flex items-center gap-2 group cursor-pointer"
+                  whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                >
+                  <span className="relative z-10">Donate Now</span>
+                  <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </motion.div>
+              </Link>
               <motion.button
                 className="border border-white/25 text-white font-bold text-sm px-5 md:px-7 py-2.5 md:py-3 rounded-full flex items-center gap-2 hover:border-white/50 hover:bg-white/5 transition-all"
                 whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}

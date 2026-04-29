@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import AnimateIn from "./ui/AnimateIn";
 
 export default function CTASection() {
@@ -24,14 +25,16 @@ export default function CTASection() {
             Join thousands of donors who are making education accessible for everyone. Your contribution today creates the leaders of tomorrow.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-5">
-            <motion.button
-              className="bg-white text-primary px-6 md:px-10 py-3 md:py-4 rounded-md font-black text-base md:text-lg shadow-2xl w-full sm:w-auto"
-              whileHover={{ scale: 1.05, backgroundColor: "#0c1525", color: "#fff" }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              DONATE NOW
-            </motion.button>
+            <Link href="/how-to-donate">
+              <motion.div
+                className="bg-white text-primary px-6 md:px-10 py-3 md:py-4 rounded-md font-black text-base md:text-lg shadow-2xl w-full sm:w-auto text-center cursor-pointer"
+                whileHover={{ scale: 1.05, backgroundColor: "#0c1525", color: "#fff" }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                DONATE NOW
+              </motion.div>
+            </Link>
             <motion.button
               className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 md:px-10 py-3 md:py-4 rounded-md font-bold text-base md:text-lg w-full sm:w-auto"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
