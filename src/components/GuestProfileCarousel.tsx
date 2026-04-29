@@ -73,8 +73,8 @@ export default function GuestProfileCarousel() {
   const next = useCallback(() => handleUserNav(() => setActive(a => (a + 1) % guests.length)), [handleUserNav]);
 
   // Fixed card dimensions — no JS vw dependency, no layout shift
-  const CARD_W = 200;
-  const CARD_H = 300;
+  const CARD_W = 260;
+  const CARD_H = 360;
   const SPREAD = 3.6;
 
   const slots = [-2, -1, 0, 1, 2].map((offset, si) => {
@@ -83,7 +83,7 @@ export default function GuestProfileCarousel() {
   });
 
   return (
-    <section className="relative min-h-screen bg-white flex flex-col items-center justify-center overflow-hidden py-20 px-4">
+    <section className="relative bg-white flex flex-col items-center overflow-hidden py-20 px-4" style={{ minHeight: "100vh" }}>
 
       {/* Ambient glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
@@ -119,7 +119,7 @@ export default function GuestProfileCarousel() {
       </div>
 
       {/* Carousel */}
-      <div className="relative z-10 w-full flex items-end justify-center" style={{ minHeight: "450px", height: `${CARD_H * 1.5}px` }}>
+      <div className="relative z-10 w-full flex items-end justify-center" style={{ height: "540px" }}>
         {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
@@ -168,36 +168,32 @@ export default function GuestProfileCarousel() {
         })}
       </div>
 
-      {/* Info card */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active}
-          className="relative z-10 mt-8 md:mt-10 w-full max-w-lg mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.4 }}
-        >
-          <div className="bg-white border border-gray-100 shadow-lg rounded-2xl p-5 md:p-6 text-center">
-            <div className="inline-flex items-center gap-2 bg-primary/8 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              {guests[active].year}
+      {/* Info card — fixed height container prevents layout shift */}
+      <div className="relative z-10 mt-8 md:mt-10 w-full max-w-lg mx-auto" style={{ minHeight: "200px" }}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            className="absolute inset-0"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35 }}
+          >
+            <div className="bg-white border border-gray-100 shadow-lg rounded-2xl p-5 md:p-6 text-center">
+              <h2 className="font-manrope font-black text-[#0c1525] text-lg md:text-xl mb-1">
+                {guests[active].visitTitle}
+              </h2>
+              <p className="text-primary text-xs uppercase tracking-[0.2em] font-bold mb-3">
+                {guests[active].role}
+              </p>
+              <div className="w-12 h-px bg-gray-200 mx-auto mb-3" />
+              <p className="text-[#5e6d82] text-sm leading-relaxed">
+                {guests[active].bio}
+              </p>
             </div>
-            <h2 className="font-manrope font-black text-[#0c1525] text-lg md:text-xl mb-1">
-              {guests[active].visitTitle}
-            </h2>
-            <p className="text-primary text-xs uppercase tracking-[0.2em] font-bold mb-3">
-              {guests[active].role}
-            </p>
-            <div className="w-12 h-px bg-gray-200 mx-auto mb-3" />
-            <p className="text-[#5e6d82] text-sm leading-relaxed">
-              {guests[active].bio}
-            </p>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* Controls */}
       <div className="relative z-10 flex items-center gap-5 mt-6 md:mt-8">
@@ -230,18 +226,16 @@ export default function GuestProfileCarousel() {
         {String(active + 1).padStart(2, "0")} / {String(guests.length).padStart(2, "0")}
       </p>
 
-      {/* Auto-play progress bar */}
-      {!paused && (
-        <div className="relative z-10 w-32 h-0.5 bg-gray-200 rounded-full mt-3 overflow-hidden">
-          <motion.div
-            className="h-full bg-primary rounded-full"
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 3, ease: "linear" }}
-            key={active}
-          />
-        </div>
-      )}
+      {/* Auto-play progress bar — always rendered, opacity only */}
+      <div className="relative z-10 w-32 h-0.5 bg-gray-200 rounded-full mt-3 overflow-hidden">
+        <motion.div
+          className="h-full bg-primary rounded-full"
+          initial={{ width: "0%" }}
+          animate={{ width: paused ? "0%" : "100%" }}
+          transition={{ duration: paused ? 0 : 3, ease: "linear" }}
+          key={`${active}-${paused}`}
+        />
+      </div>
 
     </section>
   );
