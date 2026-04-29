@@ -151,6 +151,96 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
+      {/* Affiliation & Land Donation */}
+      <section className="px-6 lg:px-24 py-20 bg-[#f8fafc]">
+        <div className="max-w-screen-xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-px bg-primary" />
+              <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">Our Facility</span>
+            </div>
+            <h2 className="font-manrope font-black text-[#0c1525] text-3xl lg:text-5xl tracking-tighter leading-tight">
+              Affiliation &amp; <span className="text-primary">Land Donation</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+            {/* Left — description */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <p className="text-[#5e6d82] text-base leading-relaxed font-light mb-6">
+                At the start, a land of <strong className="text-[#0c1525] font-semibold">4 canals (approx. 22,000 sq ft)</strong> was donated for Dar ul Zahra. On this land, our team constructed a fully functional campus to serve students and residents.
+              </p>
+              <p className="text-[#5e6d82] text-base leading-relaxed font-light mb-6">
+                A <strong className="text-[#0c1525] font-semibold">second donated plot of 4 canals</strong> directly in front of the current premises will house a dedicated accommodation compound.
+              </p>
+              <p className="text-[#5e6d82] text-base leading-relaxed font-light">
+                Combined, Dar ul Zahra owns <strong className="text-[#0c1525] font-semibold">8 canals (44,000 sq ft)</strong> of land dedicated to educational growth.
+              </p>
+
+              {/* Total land stat */}
+              <div className="mt-8 inline-flex items-center gap-4 bg-white border border-gray-100 rounded-2xl px-6 py-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-black text-[#0c1525] text-xl">8 Canals — 44,000 sq ft</p>
+                  <p className="text-[#5e6d82] text-xs mt-0.5">Total land for educational growth</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right — what was built */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {[
+                { icon: "🏫", label: "3 Classrooms", sub: "Active learning spaces" },
+                { icon: "📋", label: "1 Exam Hall", sub: "Dedicated assessment room" },
+                { icon: "🛏️", label: "6 Accommodation Rooms", sub: "Safe residential quarters" },
+                { icon: "🏢", label: "Office + Kitchen + Laundry", sub: "Full operational support" },
+                { icon: "🏗️", label: "Accommodation Compound", sub: "2nd plot — coming soon" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  className={`bg-white border border-gray-100 rounded-2xl p-5 flex items-start gap-4 ${i === 4 ? "sm:col-span-2" : ""}`}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                  whileHover={{ y: -3, boxShadow: "0 12px 32px rgba(0,0,0,0.07)" }}
+                >
+                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <div>
+                    <p className="font-bold text-[#0c1525] text-sm">{item.label}</p>
+                    <p className="text-[#5e6d82] text-xs mt-0.5">{item.sub}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-[#f8fafc] py-20 px-6 lg:px-24">
         <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
