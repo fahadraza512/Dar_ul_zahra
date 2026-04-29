@@ -63,10 +63,7 @@ export default function GuestProfileCarousel() {
   }, [paused]);
 
   const handleUserNav = useCallback((fn: () => void) => {
-    setPaused(true);
     fn();
-    const t = setTimeout(() => setPaused(false), 5000);
-    return () => clearTimeout(t);
   }, []);
 
   const prev = useCallback(() => handleUserNav(() => setActive(a => (a - 1 + guests.length) % guests.length)), [handleUserNav]);
@@ -119,7 +116,12 @@ export default function GuestProfileCarousel() {
       </div>
 
       {/* Carousel */}
-      <div className="relative z-10 w-full flex items-end justify-center" style={{ height: "540px" }}>
+      <div
+        className="relative z-10 w-full flex items-end justify-center"
+        style={{ height: "540px" }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
@@ -169,7 +171,12 @@ export default function GuestProfileCarousel() {
       </div>
 
       {/* Info card — fixed height container prevents layout shift */}
-      <div className="relative z-10 mt-8 md:mt-10 w-full max-w-lg mx-auto" style={{ minHeight: "200px" }}>
+      <div
+        className="relative z-10 mt-8 md:mt-10 w-full max-w-lg mx-auto"
+        style={{ minHeight: "200px" }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
