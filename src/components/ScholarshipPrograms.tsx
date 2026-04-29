@@ -4,22 +4,40 @@ import AnimateIn from "./ui/AnimateIn";
 
 const programs = [
   {
-    icon: <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>,
-    title: "School",
-    desc: "A structured primary and secondary school program providing quality academic education to orphans and underprivileged children in a nurturing, supportive environment.",
-    deadline: "Enrolling Now",
+    icon: <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>,
+    title: "Need-Based Scholarships",
+    desc: "Financial assistance for deserving students who demonstrate academic potential but face economic hardship.",
+    deadline: "Read More",
   },
   {
-    icon: <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>,
-    title: "Hozvi",
-    desc: "A dedicated Islamic seminary program offering traditional Hozvi education, developing scholars grounded in faith, knowledge, and service to the community.",
-    deadline: "Enrolling Now",
+    icon: <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    title: "Merit Scholarships",
+    desc: "Rewarding academic excellence with full and partial scholarships for top-performing students.",
+    deadline: "Read More",
   },
   {
-    icon: <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12h6" /></svg>,
-    title: "Hifz",
-    desc: "A Hifz program dedicated to the memorisation of the Holy Quran, guided by qualified teachers in a focused, spiritually enriching and disciplined environment.",
-    deadline: "Enrolling Now",
+    icon: <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+    title: "Alumni Giving Back",
+    desc: "Empowering alumni to sponsor students and give back to the community that shaped their future.",
+    deadline: "Read More",
+  },
+  {
+    icon: <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+    title: "Sports Scholarships",
+    desc: "Supporting talented athletes with scholarships to pursue both their academic and sporting ambitions.",
+    deadline: "Read More",
+  },
+  {
+    icon: <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
+    title: "Qarz-e-Hasna",
+    desc: "Interest-free loans enabling students to complete their education and repay after securing employment.",
+    deadline: "Read More",
+  },
+  {
+    icon: <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>,
+    title: "Partner Scholarships",
+    desc: "Collaborating with esteemed partners to expand scholarship opportunities for more students.",
+    deadline: "Read More",
   },
 ];
 
@@ -29,7 +47,7 @@ export default function ScholarshipPrograms() {
       <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
         <AnimateIn direction="up" className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-12 gap-3 md:gap-6">
           <div>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-[#0c1525] mb-2 md:mb-3 font-manrope">Our Scholarship Programs</h2>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-[#0c1525] mb-2 md:mb-3 font-manrope">Our Programs</h2>
             <p className="text-[#5e6d82] text-sm md:text-base lg:text-lg">Discover the right opportunity for your academic journey.</p>
           </div>
           <motion.a
@@ -54,7 +72,7 @@ export default function ScholarshipPrograms() {
                 transition={{ type: "spring", stiffness: 220 }}
               >
                 <motion.div
-                  className="mb-4 md:mb-6 text-primary"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 md:mb-6 text-primary"
                   whileHover={{ rotate: 8, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
