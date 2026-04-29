@@ -91,19 +91,6 @@ export default function GuestProfileCarousel() {
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
-      {/* Ghost heading */}
-      <div className="absolute top-10 left-0 right-0 flex justify-center pointer-events-none select-none z-0">
-        <span className="font-manrope font-black uppercase tracking-widest text-center"
-          style={{
-            fontSize: "clamp(2rem, 9vw, 7rem)",
-            color: "transparent",
-            WebkitTextStroke: "1px rgba(0,0,0,0.06)",
-            lineHeight: 1,
-          }}>
-          GUEST VISITS
-        </span>
-      </div>
-
       {/* Header */}
       <div className="relative z-10 text-center mb-10 md:mb-14 mt-10">
         <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase mb-3 block">Honourable Guests</span>
