@@ -4,38 +4,39 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const guests = [
   {
-    name: "Ibrahim Hasan Murad",
-    role: "President, ILM Fund",
-    bio: "Visionary leader with decades of experience in educational philanthropy and institutional development.",
-    tag: "Leadership",
+    name: "Allama Shaikh Jaffer",
+    role: "Representative of Grand Ayatullah Syed Ali Sistani",
+    year: "2021",
+    visitTitle: "Allama Shaikh Jaffer's Visit 2021",
+    bio: "Representative of Grand Ayatullah Syed Ali Sistani (Najaf-e-Ashraf) addressed the students of Dar ul Zahra, inspiring them with Islamic teachings and emphasizing the importance of education.",
+    tag: "2021",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=90",
   },
   {
-    name: "Salman Ahmad Malik",
-    role: "Advisor, ILM Fund",
-    bio: "Strategic advisor bringing expertise in finance, governance, and educational policy reform.",
-    tag: "Advisory",
+    name: "Nawab Anwar Naqvi Family",
+    role: "Visiting from Canada",
+    year: "2022",
+    visitTitle: "Nawab Anwar Naqvi Family Visit 2022",
+    bio: "Nawab Anwar Naqvi and his family, visiting from Canada, toured the Dar ul Zahra campus and met with students, pledging continued support for the centre.",
+    tag: "2022",
     img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=90",
   },
   {
-    name: "Khazra Shahbaz",
-    role: "Portfolio Manager",
-    bio: "Manages scholarship portfolios ensuring efficient disbursement to deserving students.",
-    tag: "Operations",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=90",
-  },
-  {
-    name: "Waqas Shahid",
-    role: "Head, Internal Audit",
-    bio: "Ensures complete financial transparency and accountability across all programs.",
-    tag: "Finance",
+    name: "Agha Syed Muhammad Taqi Naqvi",
+    role: "Scholar, Multan",
+    year: "2022",
+    visitTitle: "Agha Syed Muhammad Taqi Naqvi Visit 2022",
+    bio: "Agha Syed Muhammad Taqi Naqvi of Multan visited the centre and delivered an address on the role of education in building a stronger Muslim community.",
+    tag: "2022",
     img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=90",
   },
   {
-    name: "Ahmed Khan",
-    role: "Operations Manager",
-    bio: "Oversees day-to-day operations and student welfare at the center.",
-    tag: "Management",
+    name: "Allama Syed Shehanshah Naqvi",
+    role: "Scholar, Karachi",
+    year: "2022",
+    visitTitle: "Allama Syed Shehanshah Naqvi Visit 2022",
+    bio: "Allama Syed Shehanshah Naqvi of Karachi visited Dar ul Zahra Educational Center and praised the Kazmi family's efforts to provide quality education to underprivileged children.",
+    tag: "2022",
     img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=90",
   },
 ];
@@ -110,15 +111,19 @@ export default function GuestProfileCarousel() {
             WebkitTextStroke: "1px rgba(0,0,0,0.06)",
             lineHeight: 1,
           }}>
-          GUEST PROFILE
+          GUEST VISITS
         </span>
       </div>
 
       {/* Header */}
       <div className="relative z-10 text-center mb-10 md:mb-14 mt-10">
+        <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase mb-3 block">Honourable Guests</span>
         <h1 className="font-manrope font-black text-[#0c1525] text-3xl md:text-4xl lg:text-5xl tracking-tight">
-          Guest Profile
+          Guest Visits
         </h1>
+        <p className="text-[#5e6d82] text-sm mt-3 max-w-md mx-auto leading-relaxed">
+          Distinguished scholars, leaders, and supporters who have visited and inspired Dar ul Zahra.
+        </p>
       </div>
 
       {/* Carousel */}
@@ -183,10 +188,16 @@ export default function GuestProfileCarousel() {
           transition={{ duration: 0.4 }}
         >
           <div className="bg-white border border-gray-100 shadow-lg rounded-2xl p-5 md:p-6 text-center">
-            <h2 className="font-manrope font-black text-[#0c1525] text-xl md:text-2xl mb-1">
-              {guests[active].name}
+            <div className="inline-flex items-center gap-2 bg-primary/8 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {guests[active].year}
+            </div>
+            <h2 className="font-manrope font-black text-[#0c1525] text-lg md:text-xl mb-1">
+              {guests[active].visitTitle}
             </h2>
-            <p className="text-primary text-xs uppercase tracking-[0.25em] font-bold mb-3">
+            <p className="text-primary text-xs uppercase tracking-[0.2em] font-bold mb-3">
               {guests[active].role}
             </p>
             <div className="w-12 h-px bg-gray-200 mx-auto mb-3" />
