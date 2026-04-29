@@ -95,11 +95,11 @@ export default function ImageCollageSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
               >
-                <ShineCard className="w-full h-full">
+                <ShineCard className="w-full h-full rounded-2xl overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
                     alt="Campus building"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-2xl"
                   />
                 </ShineCard>
               </motion.div>
