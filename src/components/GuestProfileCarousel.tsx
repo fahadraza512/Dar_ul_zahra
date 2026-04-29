@@ -93,12 +93,17 @@ export default function GuestProfileCarousel() {
 
       {/* Header */}
       <div className="relative z-10 text-center mb-10 md:mb-14 mt-10">
-        <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase mb-3 block">Honourable Guests</span>
-        <h1 className="font-manrope font-black text-[#0c1525] text-3xl md:text-4xl lg:text-5xl tracking-tight">
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="w-8 h-px bg-primary/40" />
+          <div className="w-2 h-2 rounded-full bg-primary" />
+          <div className="w-8 h-px bg-primary/40" />
+        </div>
+        <h1 className="font-manrope font-black text-[#0c1525] text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-tight mb-4">
           Guest Visits
         </h1>
-        <p className="text-[#5e6d82] text-sm mt-3 max-w-md mx-auto leading-relaxed">
-          Distinguished scholars, leaders, and supporters who have visited and inspired Dar ul Zahra.
+        <p className="text-[#5e6d82] text-base md:text-lg max-w-xl mx-auto leading-relaxed font-light">
+          Distinguished scholars, leaders, and supporters who have<br className="hidden md:block" />
+          visited and inspired <span className="text-primary font-semibold">Dar ul Zahra</span>.
         </p>
       </div>
 
