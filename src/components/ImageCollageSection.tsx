@@ -95,7 +95,7 @@ export default function ImageCollageSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
               >
-                <ShineCard className="w-full h-full rounded-2xl overflow-hidden">
+                <ShineCard className="w-full h-full rounded-2xl overflow-hidden bg-white">
                   <img
                     src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
                     alt="Campus building"
