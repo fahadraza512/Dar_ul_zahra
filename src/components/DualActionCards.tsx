@@ -48,7 +48,7 @@ const cards = [
 export default function DualActionCards() {
   return (
     <section className="py-8 md:py-12 lg:py-14 bg-white z-20">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {cards.map((card, i) => (
             <AnimateIn key={i} direction="up" delay={card.delay}>
