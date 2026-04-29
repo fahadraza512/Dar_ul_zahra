@@ -107,7 +107,7 @@ export default function ImageCollageSection() {
               {/* Orange badge */}
               <motion.div
                 className="absolute bg-primary text-white rounded-2xl shadow-xl flex flex-col items-center justify-center text-center px-4 gap-2"
-                style={{ width: "36%", height: "43%", bottom: "10%", right: 0, zIndex: 20 }}
+                style={{ width: "30%", height: "22%", bottom: "10%", right: 0, zIndex: 20 }}
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
