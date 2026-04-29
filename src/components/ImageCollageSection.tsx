@@ -88,18 +88,18 @@ export default function ImageCollageSection() {
 
               {/* Second image */}
               <motion.div
-                className="absolute overflow-hidden rounded-3xl"
-                style={{ width: "52%", height: "43%", bottom: 0, left: 0, zIndex: 10, border: "24px solid white", borderRadius: "24px" }}
+                className="absolute bg-white rounded-3xl p-[20px]"
+                style={{ width: "52%", height: "43%", bottom: 0, left: 0, zIndex: 10 }}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
               >
-                <ShineCard className="w-full h-full rounded-2xl overflow-hidden bg-white">
+                <ShineCard className="w-full h-full rounded-2xl overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
                     alt="Campus building"
-                    className="w-full h-full object-cover rounded-2xl"
+                    className="w-full h-full object-cover"
                   />
                 </ShineCard>
               </motion.div>
@@ -107,7 +107,7 @@ export default function ImageCollageSection() {
               {/* Orange badge */}
               <motion.div
                 className="absolute bg-primary text-white rounded-2xl shadow-xl flex flex-col items-center justify-center text-center px-4 gap-2"
-                style={{ width: "36%", height: "32%", bottom: 0, right: 0, zIndex: 20 }}
+                style={{ width: "36%", height: "43%", bottom: 0, right: 0, zIndex: 20 }}
                 initial={{ opacity: 0, scale: 0.85 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
