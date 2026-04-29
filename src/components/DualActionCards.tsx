@@ -5,8 +5,7 @@ import AnimateIn from "./ui/AnimateIn";
 const cards = [
   {
     title: "Shahbaz Sharif Merit Scholarship",
-    description:
-      "Transforming the academic landscape by providing international standard education to the brightest minds.",
+    description: "Transforming the academic landscape by providing international standard education to the brightest minds.",
     button: "Apply Internationally",
     bg: "bg-primary",
     btnClass: "bg-white text-primary hover:bg-gray-100",
@@ -19,8 +18,7 @@ const cards = [
   },
   {
     title: "Federal Merit Scholarship",
-    description:
-      "Empowering talented students nationwide with fully funded opportunities to achieve academic excellence.",
+    description: "Empowering talented students nationwide with fully funded opportunities to achieve academic excellence.",
     button: "Apply Now",
     bg: "bg-primary",
     btnClass: "bg-white text-primary hover:bg-gray-100",
@@ -33,8 +31,7 @@ const cards = [
   },
   {
     title: "9 Billion Merit Scholarship",
-    description:
-      "Local scholarships designed to bridge the gap between financial constraints and educational excellence across 850 cities.",
+    description: "Local scholarships designed to bridge the gap between financial constraints and educational excellence across 850 cities.",
     button: "Apply Locally",
     bg: "bg-[#0c1525]",
     btnClass: "bg-primary text-white hover:opacity-90",
@@ -47,8 +44,7 @@ const cards = [
   },
   {
     title: "School",
-    description:
-      "A structured primary and secondary school program providing quality academic education to orphans and underprivileged children.",
+    description: "A structured primary and secondary school program providing quality academic education to orphans and underprivileged children.",
     button: "Learn More",
     bg: "bg-primary",
     btnClass: "bg-white text-primary hover:bg-gray-100",
@@ -62,8 +58,7 @@ const cards = [
   },
   {
     title: "Hozvi",
-    description:
-      "A dedicated Islamic seminary program offering traditional Hozvi education, developing scholars grounded in faith and knowledge.",
+    description: "A dedicated Islamic seminary program offering traditional Hozvi education, developing scholars grounded in faith and knowledge.",
     button: "Learn More",
     bg: "bg-[#0c1525]",
     btnClass: "bg-primary text-white hover:opacity-90",
@@ -76,8 +71,7 @@ const cards = [
   },
   {
     title: "Hifz",
-    description:
-      "A Hifz program dedicated to the memorisation of the Holy Quran, guided by qualified teachers in a spiritually enriching environment.",
+    description: "A Hifz program dedicated to the memorisation of the Holy Quran, guided by qualified teachers in a spiritually enriching environment.",
     button: "Learn More",
     bg: "bg-primary",
     btnClass: "bg-white text-primary hover:bg-gray-100",
@@ -103,7 +97,6 @@ export default function DualActionCards() {
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
-                {/* Content */}
                 <div className="relative z-10 p-6 md:p-8 flex flex-col justify-between h-full" style={{ minHeight: "220px" }}>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold mb-3 font-manrope leading-snug">
@@ -123,55 +116,6 @@ export default function DualActionCards() {
                     </motion.button>
                   </div>
                 </div>
-
-                {/* Background icon */}
-                <div className="absolute -bottom-6 -right-6 w-36 h-36 opacity-10 pointer-events-none">
-                  {card.icon}
-                </div>
-              </motion.div>
-            </AnimateIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export default function DualActionCards() {
-  return (
-    <section className="py-8 md:py-12 lg:py-14 bg-white z-20">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {cards.map((card, i) => (
-            <AnimateIn key={i} direction="up" delay={card.delay}>
-              <motion.div
-                className={`${card.bg} rounded-2xl text-white relative overflow-hidden`}
-                style={{ minHeight: "220px" }}
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                {/* Content */}
-                <div className="relative z-10 p-6 md:p-8 flex flex-col justify-between h-full" style={{ minHeight: "220px" }}>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold mb-3 font-manrope leading-snug">
-                      {card.title}
-                    </h3>
-                    <p className="text-white/80 mb-6 text-sm md:text-base leading-relaxed">
-                      {card.description}
-                    </p>
-                  </div>
-                  <div>
-                    <motion.button
-                      className={`${card.btnClass} px-6 py-2.5 rounded-md font-bold text-sm transition-colors`}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                    >
-                      {card.button}
-                    </motion.button>
-                  </div>
-                </div>
-
-                {/* Background icon */}
                 <div className="absolute -bottom-6 -right-6 w-36 h-36 opacity-10 pointer-events-none">
                   {card.icon}
                 </div>
