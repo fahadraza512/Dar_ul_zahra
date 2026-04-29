@@ -89,7 +89,7 @@ export default function ImageCollageSection() {
               {/* Second image */}
               <motion.div
                 className="absolute rounded-2xl overflow-hidden"
-                style={{ width: "52%", height: "43%", bottom: "10%", left: 0, zIndex: 10 }}
+                style={{ width: "52%", height: "43%", bottom: "10%", left: 0, zIndex: 10, outline: "12px solid white" }}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
