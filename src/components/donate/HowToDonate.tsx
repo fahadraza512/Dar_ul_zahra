@@ -384,7 +384,7 @@ export default function HowToDonate() {
             <p className="text-white/60 text-base font-light">Your support keeps 37+ children in school. Join the Kazmi family's mission to educate every child in Kot Adu, Punjab.</p>
           </motion.div>
           <motion.div className="flex flex-wrap gap-4 shrink-0" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <motion.a href="https://wa.me/923336006512" target="_blank" rel="noreferrer"
+            <motion.a href="/how-to-donate"
               className="bg-white text-primary font-bold text-sm px-8 py-4 rounded-full flex items-center gap-2 hover:bg-white/90 transition-colors shadow-xl"
               whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               Donate Now

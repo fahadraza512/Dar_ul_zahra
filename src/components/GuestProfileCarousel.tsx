@@ -51,15 +51,7 @@ const SLOTS = [
 
 export default function GuestProfileCarousel() {
   const [active, setActive] = useState(0);
-  const [vw, setVw] = useState(390);
   const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    const update = () => setVw(window.innerWidth);
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
   // Auto-advance every 3s, pause on user interaction, resume after 5s
   useEffect(() => {
@@ -73,7 +65,6 @@ export default function GuestProfileCarousel() {
   const handleUserNav = useCallback((fn: () => void) => {
     setPaused(true);
     fn();
-    // Resume auto-play after 5s of inactivity
     const t = setTimeout(() => setPaused(false), 5000);
     return () => clearTimeout(t);
   }, []);
@@ -81,12 +72,13 @@ export default function GuestProfileCarousel() {
   const prev = useCallback(() => handleUserNav(() => setActive(a => (a - 1 + guests.length) % guests.length)), [handleUserNav]);
   const next = useCallback(() => handleUserNav(() => setActive(a => (a + 1) % guests.length)), [handleUserNav]);
 
-  // Responsive card dimensions
-  const CARD_W = vw < 480 ? 130 : vw < 768 ? 160 : 200;
-  const CARD_H = vw < 480 ? 190 : vw < 768 ? 240 : 360;
-  const SPREAD = vw < 480 ? 3.0 : vw < 768 ? 3.4 : 3.8;
+  // Fixed card dimensions — no JS vw dependency, no layout shift
+  const CARD_W = 200;
+  const CARD_H = 300;
+  const SPREAD = 3.6;
 
-  const slots = [-2, -1, 0, 1, 2].map((offset, si) => {    const idx = (active + offset + guests.length) % guests.length;
+  const slots = [-2, -1, 0, 1, 2].map((offset, si) => {
+    const idx = (active + offset + guests.length) % guests.length;
     return { guest: guests[idx], slot: SLOTS[si], isCenter: offset === 0, offset };
   });
 
@@ -127,8 +119,7 @@ export default function GuestProfileCarousel() {
       </div>
 
       {/* Carousel */}
-      <div className="relative z-10 w-full flex items-end justify-center"
-        style={{ height: `${CARD_H * 1.5}px` }}>
+      <div className="relative z-10 w-full flex items-end justify-center" style={{ minHeight: "450px", height: `${CARD_H * 1.5}px` }}>
         {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
