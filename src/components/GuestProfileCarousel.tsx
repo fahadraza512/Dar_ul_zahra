@@ -103,12 +103,7 @@ export default function GuestProfileCarousel() {
       </div>
 
       {/* Carousel */}
-      <div
-        className="relative z-10 w-full flex items-end justify-center"
-        style={{ height: "540px" }}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
+      <div className="relative z-10 w-full flex items-end justify-center" style={{ height: "540px" }}>
         {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
@@ -126,6 +121,8 @@ export default function GuestProfileCarousel() {
               whileHover={!isCenter ? { scale: 1.05, opacity: 0.9 } : {}}
             >
               <div className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden relative"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
                 style={{
                   boxShadow: isCenter
                     ? "0 0 0 1px rgba(241,90,36,0.5), 0 32px 80px rgba(0,0,0,0.6), 0 0 60px rgba(241,90,36,0.15)"
@@ -161,8 +158,6 @@ export default function GuestProfileCarousel() {
       <div
         className="relative z-10 mt-8 md:mt-10 w-full max-w-lg mx-auto"
         style={{ minHeight: "200px" }}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -173,7 +168,11 @@ export default function GuestProfileCarousel() {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.35 }}
           >
-            <div className="bg-white border border-gray-100 shadow-lg rounded-2xl p-5 md:p-6 text-center">
+            <div
+              className="bg-white border border-gray-100 shadow-lg rounded-2xl p-5 md:p-6 text-center"
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+            >
               <h2 className="font-manrope font-black text-[#0c1525] text-lg md:text-xl mb-1">
                 {guests[active].visitTitle}
               </h2>
