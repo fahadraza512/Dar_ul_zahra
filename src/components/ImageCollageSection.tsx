@@ -88,14 +88,14 @@ export default function ImageCollageSection() {
 
               {/* Second image */}
               <motion.div
-                className="absolute bg-white rounded-3xl p-[20px]"
+                className="absolute rounded-2xl overflow-hidden"
                 style={{ width: "52%", height: "43%", bottom: "10%", left: 0, zIndex: 10 }}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
               >
-                <ShineCard className="w-full h-full rounded-2xl overflow-hidden">
+                <ShineCard className="w-full h-full">
                   <img
                     src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80"
                     alt="Campus building"
