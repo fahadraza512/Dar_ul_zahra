@@ -72,7 +72,7 @@ export default function ScholarshipPrograms() {
                 transition={{ type: "spring", stiffness: 220 }}
               >
                 <motion.div
-                  className="w-10 h-10 md:w-12 md:h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 md:mb-6 text-primary"
+                  className="mb-4 md:mb-6 text-primary"
                   whileHover={{ rotate: 8, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >

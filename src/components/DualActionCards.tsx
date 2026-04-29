@@ -4,51 +4,12 @@ import AnimateIn from "./ui/AnimateIn";
 
 const cards = [
   {
-    title: "Shahbaz Sharif Merit Scholarship",
-    description: "Transforming the academic landscape by providing international standard education to the brightest minds.",
-    button: "Apply Internationally",
-    bg: "bg-primary",
-    btnClass: "bg-white text-primary hover:bg-gray-100",
-    delay: 0.1,
-    icon: (
-      <svg fill="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 11-6-11-6z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Federal Merit Scholarship",
-    description: "Empowering talented students nationwide with fully funded opportunities to achieve academic excellence.",
-    button: "Apply Now",
-    bg: "bg-primary",
-    btnClass: "bg-white text-primary hover:bg-gray-100",
-    delay: 0.2,
-    icon: (
-      <svg fill="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-        <path d="M12 3L1 9l11 6 11-6-11-6zM1 15l11 6 11-6M1 9v6m22-6v6" />
-      </svg>
-    ),
-  },
-  {
-    title: "9 Billion Merit Scholarship",
-    description: "Local scholarships designed to bridge the gap between financial constraints and educational excellence across 850 cities.",
-    button: "Apply Locally",
-    bg: "bg-[#0c1525]",
-    btnClass: "bg-primary text-white hover:opacity-90",
-    delay: 0.3,
-    icon: (
-      <svg fill="currentColor" viewBox="0 0 24 24" className="w-full h-full">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-      </svg>
-    ),
-  },
-  {
     title: "School",
     description: "A structured primary and secondary school program providing quality academic education to orphans and underprivileged children.",
     button: "Learn More",
     bg: "bg-primary",
     btnClass: "bg-white text-primary hover:bg-gray-100",
-    delay: 0.15,
+    delay: 0.1,
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -62,7 +23,7 @@ const cards = [
     button: "Learn More",
     bg: "bg-[#0c1525]",
     btnClass: "bg-primary text-white hover:opacity-90",
-    delay: 0.25,
+    delay: 0.2,
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -75,7 +36,7 @@ const cards = [
     button: "Learn More",
     bg: "bg-primary",
     btnClass: "bg-white text-primary hover:bg-gray-100",
-    delay: 0.35,
+    delay: 0.3,
     icon: (
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
