@@ -21,6 +21,7 @@ const moreLinks = [
   { label: "Field Trip",           href: "/field-trip",       icon: "🚌", category: "Activities" },
   { label: "How To Donate",        href: "/how-to-donate",    icon: "💳", category: "Donate" },
   { label: "Ramadhan Relief 2025", href: "/ramadhan-relief",  icon: "🌙", category: "Donate" },
+  { label: "Upcoming Projects",    href: "/upcoming-projects", icon: "🏗️", category: "Donate" },
   { label: "USA Donors",           href: "/donors/usa",       icon: "🇺🇸", category: "Donors" },
   { label: "UK Donors",            href: "/donors/uk",        icon: "🇬🇧", category: "Donors" },
   { label: "Canadian Donors",      href: "/donors/canada",    icon: "🇨🇦", category: "Donors" },
