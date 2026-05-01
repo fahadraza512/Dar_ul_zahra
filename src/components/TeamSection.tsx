@@ -21,12 +21,12 @@ export default function TeamSection() {
           </p>
         </AnimateIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {team.map((member, i) => (
             <AnimateIn key={i} direction="up" delay={i * 0.08}>
               <motion.div className="group text-center" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 250 }}>
                 {/* Circle — max size capped, scales with column */}
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 mx-auto mb-3 md:mb-4">
+                <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 mx-auto mb-3 md:mb-4">
                   <motion.div
                     className="absolute inset-0 bg-primary/10 rounded-full"
                     initial={{ scale: 0.8, opacity: 0 }}

@@ -62,7 +62,7 @@ export default function ImpactSection() {
 
         <AnimateIn direction="right" delay={0.15}>
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden aspect-[3/4] shadow-xl">
+            <div className="rounded-2xl overflow-hidden aspect-video md:aspect-[3/4] shadow-xl">
               <img
                 src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80"
                 alt="Impact"

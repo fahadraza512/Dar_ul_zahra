@@ -54,7 +54,7 @@ export default function DualActionCards() {
             <AnimateIn key={i} direction="up" delay={card.delay}>
               <motion.div
                 className={`${card.bg} rounded-2xl text-white relative overflow-hidden`}
-                style={{ minHeight: "220px" }}
+                style={{ minHeight: "200px" }}
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >

@@ -66,6 +66,28 @@ body {
   }
 }
 
+/* ── Responsive overflow containment ── */
+section {
+  position: relative;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Prevent any direct child of body from exceeding viewport */
+main > * {
+  max-width: 100%;
+}
+
+/* Fix for orbit/absolute children bleeding outside their containers */
+.orbit-container {
+  isolation: isolate;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Custom orange scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

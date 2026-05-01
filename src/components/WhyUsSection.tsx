@@ -57,11 +57,11 @@ export default function WhyUsSection() {
           {/* Right image — constrained height so it doesn't tower */}
           <AnimateIn direction="up" delay={0.15}>
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden">
+              <div className="rounded-2xl overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80"
                   alt="University"
-                  className="w-full h-52 sm:h-64 md:h-80 lg:h-96 object-cover"
+                  className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c1525]/80 to-transparent" />
               </div>

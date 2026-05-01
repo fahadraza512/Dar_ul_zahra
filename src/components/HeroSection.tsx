@@ -147,13 +147,13 @@ export default function HeroSection() {
                 "Read in the name of your Lord who created." — Al-Quran 96:1
               </p>
             </div>
-            <div className="relative flex items-center justify-center w-64 h-64 xl:w-80 xl:h-80">
+            <div className="relative flex items-center justify-center w-56 h-56 xl:w-72 xl:h-72">
               <motion.div className="absolute inset-0 rounded-full" style={{ border: "1.5px dashed rgba(241,90,36,0.25)" }}
                 animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} />
               <motion.div className="absolute rounded-full" style={{ inset: 20, border: "1px solid rgba(255,255,255,0.07)" }}
                 animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} />
               <div className="absolute inset-8 rounded-full bg-primary/8 blur-2xl pointer-events-none" />
-              <div className="relative w-40 h-40 xl:w-48 xl:h-48 rounded-3xl bg-white shadow-2xl flex items-center justify-center z-10"
+              <div className="relative w-32 h-32 xl:w-44 xl:h-44 rounded-3xl bg-white shadow-2xl flex items-center justify-center z-10"
                 style={{ boxShadow: "0 0 0 1px rgba(241,90,36,0.15), 0 24px 48px rgba(0,0,0,0.5)" }}>
                 <img src="/logo.png" alt="Dar ul Zahra" className="w-28 xl:w-36 h-auto object-contain" />
               </div>

@@ -105,7 +105,7 @@ export default function Navbar({ forceScrolled = false }: { forceScrolled?: bool
             <Image src="/logo.png" alt="Dar ul Zahra" width={56} height={56} className="object-contain md:w-16 md:h-16 lg:w-20 lg:h-20" priority />
           </motion.div>
           <motion.span
-            className="text-sm md:text-base lg:text-xl xl:text-2xl tracking-widest uppercase font-nexa transition-colors duration-300 whitespace-nowrap"
+            className="text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl tracking-wide uppercase font-nexa transition-colors duration-300 max-w-[110px] sm:max-w-none truncate sm:whitespace-nowrap"
             style={{ color: isScrolled ? "#2d5a1b" : "#ffffff" }}
             whileHover={{ color: "#f15a24" }}
           >
