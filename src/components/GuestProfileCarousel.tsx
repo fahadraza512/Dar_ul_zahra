@@ -109,7 +109,7 @@ export default function GuestProfileCarousel() {
 
       {/* Carousel */}
       <div className="relative z-10 w-full flex items-end justify-center" style={{ height: "540px" }}>
-        {slots.map(({ guest, slot, isCenter, offset }) => {
+        {slots.map(({ guest, slot, isCenter, offset }, si) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
           const xPx = (slot.xPct / 100) * CARD_W * SPREAD;
@@ -119,16 +119,9 @@ export default function GuestProfileCarousel() {
             <motion.div
               key={guest.name}
               className="absolute cursor-pointer"
-              style={{ left: "50%", bottom: 0 }}
-              animate={{
-                width: w,
-                height: h,
-                x: xPx - w / 2,
-                y: -yPx + (CARD_H - h),
-                opacity: slot.opacity,
-                zIndex: slot.z,
-              }}
-              transition={{ type: "spring", stiffness: 180, damping: 26, mass: 1.1 }}
+              style={{ width: w, height: h, zIndex: slot.z, left: "50%", bottom: 0 }}
+              animate={{ x: xPx - w / 2, y: -yPx + (CARD_H - h), opacity: slot.opacity }}
+              transition={{ type: "spring", stiffness: 200, damping: 28, mass: 1 }}
               onClick={() => { if (offset !== 0) handleUserNav(() => setActive(a => (a + offset + guests.length) % guests.length)); }}
               whileHover={!isCenter ? { scale: 1.05, opacity: 0.9 } : {}}
             >
