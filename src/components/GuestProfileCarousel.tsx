@@ -19,7 +19,7 @@ const guests = [
     visitTitle: "Nawab Anwar Naqvi Family Visit 2022",
     bio: "Nawab Anwar Naqvi and his family, visiting from Canada, toured the Dar ul Zahra campus and met with students, pledging continued support for the centre.",
     tag: "2022",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=90",
+    img: "/profile/anwar-naqvi.jpg",
   },
   {
     name: "Agha Syed Muhammad Taqi Naqvi",
@@ -28,7 +28,7 @@ const guests = [
     visitTitle: "Agha Syed Muhammad Taqi Naqvi Visit 2022",
     bio: "Agha Syed Muhammad Taqi Naqvi of Multan visited the centre and delivered an address on the role of education in building a stronger Muslim community.",
     tag: "2022",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=90",
+    img: "/profile/taqi-naqvi.jpg",
   },
   {
     name: "Allama Syed Shehanshah Naqvi",
@@ -37,7 +37,7 @@ const guests = [
     visitTitle: "Allama Syed Shehanshah Naqvi Visit 2022",
     bio: "Allama Syed Shehanshah Naqvi of Karachi visited Dar ul Zahra Educational Center and praised the Kazmi family's efforts to provide quality education to underprivileged children.",
     tag: "2022",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=90",
+    img: "/profile/shehnshah-naqvi.jpg",
   },
 ];
 
