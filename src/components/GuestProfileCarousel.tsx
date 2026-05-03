@@ -74,19 +74,9 @@ export default function GuestProfileCarousel() {
   const CARD_H = 360;
   const SPREAD = 3.6;
 
-  // Build a map: guestIndex → slot position for smooth per-card animation
-  const cardSlots = guests.map((_, gIdx) => {
-    const offset = ((gIdx - active + guests.length) % guests.length);
-    // Map offset 0→center(2), 1→right1(3), 2→right2(4), n-1→left1(1), n-2→left2(0)
-    const slotMap: Record<number, number> = {
-      0: 2,
-      1: 3,
-      [guests.length - 1]: 1,
-      2: 4,
-      [guests.length - 2]: 0,
-    };
-    const si = slotMap[offset] ?? -1; // -1 = hidden
-    return { guest: guests[gIdx], gIdx, si, isCenter: offset === 0, offset };
+  const slots = [-2, -1, 0, 1, 2].map((offset, si) => {
+    const idx = (active + offset + guests.length) % guests.length;
+    return { guest: guests[idx], slot: SLOTS[si], isCenter: offset === 0, offset };
   });
 
   return (
@@ -119,8 +109,7 @@ export default function GuestProfileCarousel() {
 
       {/* Carousel */}
       <div className="relative z-10 w-full flex items-end justify-center" style={{ height: "540px" }}>
-        {cardSlots.map(({ guest, gIdx, si, isCenter, offset }) => {
-          const slot = si >= 0 ? SLOTS[si] : { xPct: 0, yPct: 0, scale: 0, z: 0, opacity: 0 };
+        {slots.map(({ guest, slot, isCenter, offset }) => {
           const w = CARD_W * slot.scale;
           const h = CARD_H * slot.scale;
           const xPx = (slot.xPct / 100) * CARD_W * SPREAD;
@@ -128,24 +117,13 @@ export default function GuestProfileCarousel() {
 
           return (
             <motion.div
-              key={gIdx}
+              key={guest.name}
               className="absolute cursor-pointer"
-              style={{ width: CARD_W, height: CARD_H, left: "50%", bottom: 0, zIndex: slot.z }}
-              animate={{
-                x: xPx - CARD_W / 2,
-                y: -yPx + (CARD_H - h),
-                scale: slot.scale,
-                opacity: si < 0 ? 0 : slot.opacity,
-                zIndex: slot.z,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 280,
-                damping: 28,
-                mass: 0.9,
-              }}
-              onClick={() => { if (offset !== 0 && si >= 0) handleUserNav(() => setActive(a => (a + offset + guests.length) % guests.length)); }}
-              whileHover={!isCenter && si >= 0 ? { scale: slot.scale * 1.06, opacity: 0.92 } : {}}
+              style={{ width: w, height: h, zIndex: slot.z, left: "50%", bottom: 0 }}
+              animate={{ x: xPx - w / 2, y: -yPx + (CARD_H - h), opacity: slot.opacity }}
+              transition={{ type: "spring", stiffness: 300, damping: 30, mass: 0.8 }}
+              onClick={() => { if (offset !== 0) handleUserNav(() => setActive(a => (a + offset + guests.length) % guests.length)); }}
+              whileHover={!isCenter ? { scale: 1.05, opacity: 0.9 } : {}}
             >
               <div className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden relative"
                 onMouseEnter={() => setPaused(true)}
