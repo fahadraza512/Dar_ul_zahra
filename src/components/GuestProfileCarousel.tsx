@@ -119,9 +119,16 @@ export default function GuestProfileCarousel() {
             <motion.div
               key={guest.name}
               className="absolute cursor-pointer"
-              style={{ width: w, height: h, zIndex: slot.z, left: "50%", bottom: 0 }}
-              animate={{ x: xPx - w / 2, y: -yPx + (CARD_H - h), opacity: slot.opacity }}
-              transition={{ type: "spring", stiffness: 300, damping: 30, mass: 0.8 }}
+              style={{ left: "50%", bottom: 0 }}
+              animate={{
+                width: w,
+                height: h,
+                x: xPx - w / 2,
+                y: -yPx + (CARD_H - h),
+                opacity: slot.opacity,
+                zIndex: slot.z,
+              }}
+              transition={{ type: "spring", stiffness: 180, damping: 26, mass: 1.1 }}
               onClick={() => { if (offset !== 0) handleUserNav(() => setActive(a => (a + offset + guests.length) % guests.length)); }}
               whileHover={!isCenter ? { scale: 1.05, opacity: 0.9 } : {}}
             >
